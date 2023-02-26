@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm} % Math packages
+\usepackage{amsfonts,amsmath,amssymb,amsthm} % Math packages
 \usepackage{graphicx} % For including images
 \usepackage{titlesec} % For customizing section titles
 \usepackage{titling} % For customizing the title
@@ -45,5 +45,126 @@
 \section*{Problem 2}
 
 \section*{Problem 3}
+\subsection{a}
+
+We first consider the case where $m\geq n$. In this case, for any $y=\sum_{i=1}^n\lambda_iA_i$ such that $y\in C$, even if \textbf{all} $n$ coefficients are nonzero, this is still $m$ or fewer nonzero coefficients.
+
+The only non-trivial case to consider is when $m<n$. Consider some $y\in C$. By definition, $\exists \lambda_1, \cdots, \lambda_n\geq 0:y=\sum_{i=1}^n\lambda_i A_i$. There may, in fact, be multiple distinct $\lambda$, and we can define these $\lambda$ using the polyhedron $Q$:
+
+$$
+Q=\bigl\{(\lambda_1, \cdots,\lambda_n)\in\mathbb{R}^n:y=\sum_{i=1}^n\lambda_iA_i, \lambda_1, \cdots, \lambda_n \geq 0\bigr\}
+$$
+We notice that we can rewrite the condition $\sum_{i=1}^n\lambda_iA_i=y$ to the condition $y=A\lambda$:
+
+$$
+Q=\bigl\{\lambda\in\mathbb{R}^n:A\lambda=y, \lambda\geq 0\bigr\}
+$$
+
+This is then the standard-form polyhedron that we are very familiar with. We are given no information about the vectors $\{A_1,\cdots, A_n\}$, but we know that rank($A$)$=k\leq m$ must hold due to the number of elements in each vector. 
+
+If $k<m$, then we could use Theorem 2.5 from the lecture notes to construct an equivalent polyhedron $Q'$, continue the proof using $Q'$ instead of $Q$, and develop a solution $Q'$ that, because Theorem 2.5 guarantees $Q'=Q$, also satisfies the constratints of $Q$. And, instead of having at most $m$ non-zero coefficients, that solution would have at most $k<m$ non-zero coefficients, satisfying the constraints of the problem. 
+
+Thus, \emph{without loss of generality}, we assume that rank($A$)$=m$. Consider Theorem 2.4 from the lectures:
+
+\bigskip
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        Theorem 2.4
+        
+        Consider the constraints $Ax=b$ and $x\geq 0$ and assume that the $m\times n$ matrix $A$ has linearly independent rows. A vector $x\in \mathbb{R}^n$ is a basic solution if and only if we have $Ax=b$, and there exist distinct indices $B(1),\cdots, B(m)\in\{1,\cdots,n\}$ such that:
+\begin{itemize}
+\item The columns $A_{B(1)}, \cdots, A_{B(m)}$ of $A$ are linearly independent.
+\item If $i\neq B(1),\cdots, B(m)$, then $x_i=0$.
+\end{itemize}
+    }%
+}
+
+Since $A$, a $m\times n$ matrix of rank $m$, has linearly independent rows, there must exist some set of $m$ linearly independent columns $A_{B(1)},\cdots, A_{B(m)}$ at indices $B(1),\cdots, B(m)$. We construct
+
+$$
+B=\begin{bmatrix}
+A_{B(1)} & \cdots & A_{B(m)} \\
+\end{bmatrix}
+$$
+
+We then define $\lambda_B=B^{-1}y$ (note that $B^{-1}$ exists since $B$'s columns are linearly independent), and
+$$
+\lambda_i^* = \begin{cases}
+(\lambda_B)_j\quad \text{if }\exists B(j):i=B(j), 1\leq j\leq m\\
+0\quad\quad\quad i\neq B(1), \cdots, B(m)
+\end{cases}
+$$
+is a basic (feasible) solution in $Q$ conforming to Theorem 2.4. Since $\lambda^*\in Q$, by the definiton of $Q$ we have $y=\sum_{i=1}^n\lambda_i^*A_i$. Furthermore, since the first case of $\lambda_i^*$ applies at $m$ indices, there can be \textbf{at most} $m$ non-zero elements in $\lambda^*$. Thus we have shown that for any $y\in C$, we can find the required $\lambda_1,\cdots, \lambda_n$, namely our $\lambda^*$. Q.E.D
+
+\subsection{b}
+
+We first consider the case where $m+1\geq n$. In this case, for any $y=\sum_{i=1}^n\lambda_iA_i$ such that $y\in C$, even if \textbf{all} $n$ coefficients are nonzero, this is still $m+1$ or fewer nonzero coefficients.
+
+The only non-trivial case to consider is when $m+1<n$. Consider some $y\in C$. By definition, $\exists \lambda_1, \cdots, \lambda_n\geq 0:y=\sum_{i=1}^n\lambda_i A_i$. There may, in fact, be multiple distinct $\lambda$, and we can define these $\lambda$ using the polyhedron $Q$:
+
+$$
+Q=\bigl\{(\lambda_1, \cdots,\lambda_n)\in\mathbb{R}^n:y=\sum_{i=1}^n\lambda_iA_i, \sum_{i=1}^n\lambda_i=1, \lambda_1, \cdots, \lambda_n \geq 0\bigr\}
+$$
+We notice that we can rewrite the condition $\sum_{i=1}^n\lambda_iA_i=y$ to the condition $y=A\lambda$:
+
+$$
+Q=\bigl\{\lambda\in\mathbb{R}^n:A\lambda=y, \sum_{i=1}^n\lambda_i=1, \lambda\geq 0\bigr\}
+$$
+We can then append our final equality constraint to create a new $(m+1)\times n$ contstraint matrix $\bar{A}$ and a single vector $\bar{y}\in\mathbb{R}^{m+1}$:
+$$
+\bar{A}=\begin{bmatrix}
+A\\
+\begin{bmatrix}
+1&1&\cdots&1
+\end{bmatrix}
+\end{bmatrix}, 
+\bar{y} = \begin{bmatrix}
+y\\
+1
+\end{bmatrix}
+$$
+Thus we have:
+
+$$
+Q=\bigl\{\lambda\in\mathbb{R}^n:\bar{A}\lambda=\bar{y}, \lambda\geq 0\bigr\}
+$$
+
+This is then the standard-form polyhedron that we are very familiar with. We know that rank($\bar{A}$)$=k\leq m+1$ must hold due to the number of elements in each vector. 
+
+If $k<m+1$, then we could use Theorem 2.5 from the lecture notes to construct an equivalent polyhedron $Q'$, continue the proof using $Q'$ instead of $Q$, and develop a solution $Q'$ that, because Theorem 2.5 guarantees $Q'=Q$, also satisfies the constratints of $Q$. And, instead of having at most $m+1$ non-zero coefficients, that solution would have at most $k<m+1$ non-zero coefficients, satisfying the constraints of the problem. 
+
+Thus, \emph{without loss of generality}, we assume that rank($\bar{A}$)$=m+1$. Consider Theorem 2.4 from the lectures:
+
+\bigskip
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        Theorem 2.4
+        
+        Consider the constraints $Ax=b$ and $x\geq 0$ and assume that the $m\times n$ matrix $A$ has linearly independent rows. A vector $x\in \mathbb{R}^n$ is a basic solution if and only if we have $Ax=b$, and there exist distinct indices $B(1),\cdots, B(m)\in\{1,\cdots,n\}$ such that:
+\begin{itemize}
+\item The columns $A_{B(1)}, \cdots, A_{B(m)}$ of $A$ are linearly independent.
+\item If $i\neq B(1),\cdots, B(m)$, then $x_i=0$.
+\end{itemize}
+    }%
+}
+
+Since $\bar{A}$, a $(m+1)\times n$ matrix of rank $(m+1)$, has linearly independent rows, there must exist some set of $(m+1)$ linearly independent columns $\bar{A}_{B(1)},\cdots, \bar{A}_{B(m)}$ at indices $B(1),\cdots, B(m+1)$. We construct
+
+$$
+B=\begin{bmatrix}
+\bar{A}_{B(1)} & \cdots & \bar{A}_{B(m+1)} \\
+\end{bmatrix}
+$$
+
+We then define $\lambda_B=B^{-1}y$ (note that $B^{-1}$ exists since $B$'s columns are linearly independent), and
+$$
+\lambda_i^* = \begin{cases}
+(\lambda_B)_j\quad \text{if }\exists B(j):i=B(j), 1\leq j\leq m+1\\
+0\quad\quad\quad i\neq B(1), \cdots, B(m)
+\end{cases}
+$$
+is a basic (feasible) solution in $Q$ conforming to Theorem 2.4. Since $\lambda^*\in Q$, by the definiton of $Q$ we have $\bar{y}=\sum_{i=1}^n\lambda_i^*\bar{A_i}$, which then implies that $y=\sum_{i=1}^n\lambda_iA_i$ \textbf{and} $\sum_{i=1}^n\lambda_i=1$. Furthermore, since the first case of $\lambda_i^*$ applies at $m+1$ indices, there can be \textbf{at most} $m+1$ non-zero elements in $\lambda^*$. Thus we have shown that for any $y\in C$, we can find the required $\lambda_1,\cdots, \lambda_n$, namely our $\lambda^*$. Q.E.D
 
 \end{document}
