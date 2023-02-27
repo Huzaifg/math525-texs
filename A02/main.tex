@@ -41,11 +41,72 @@
 \newpage
 
 \section*{Problem 1}
+\subsection*{a} Let's check if each of the vectors is a basic solution : \\
+For vector (0.5,1,0.5,0,0) we first check if it satisfies $Ax = b$ \\
+\[-0.5 + 1 + 0.5 + 2(0) - 2(0) = 1\]
+\[3(0.5) + 2(1) + 7(1/2) - 0 +4(0) = 7\]
+\[-2(0.5) + 4(1) +6(0.5) +2(0) - 0 = 6\]
+Thus, all the equality constraints are satisfied. Now we check if the columns corresponding to the basic-variables are linearly independent. We thus have the bases 
+\[B  =  \begin{bmatrix}
+-1 & 1 & 1  \\
+3 & 2 & 7 \\
+-2 & 4 & 6 
+\end{bmatrix}\]
+The columns of $B$ are linearly independent if $det(B) \ne 0$. However $det(B) = 0$. Thus, (0.5,1,0.5,0,0) is \textbf{NOT} a basic solution. Since its not basic it is also \textbf{NOT} degenerate.
 
-\section*{Problem 2}
+Now, for vector (1,2,0,0,0), we follow the same procedure to see if $Ax = b$:\\
+\[-1 + 2 = 1\]
+\[3 + 2(2) = 7\]
+\[-2 + 4(2) = 6\]
+Thus $Ax = b$ is satisfied. This vector can potentially have 3 bases
+\[B_1  =  \begin{bmatrix}
+    -1 & 1 & 1  \\
+    3 & 2 & 7 \\
+    -2 & 4 & 6 
+    \end{bmatrix}\]
+\[det(B_1) = 0\]
+
+\[B_2  =  \begin{bmatrix}
+    -1 & 1 & 2  \\
+    3 & 2 & -1 \\
+    -2 & 4 & 2 
+    \end{bmatrix}\]
+\[det(B_2) = 20\]
+
+\[B_3  =  \begin{bmatrix}
+    -1 & 1 & -2  \\
+    3 & 2 & 4 \\
+    -2 & 4 & -1 
+    \end{bmatrix}\]
+\[det(B_3) = -19\]
+Thus, the vector is a basic solution as it has atleast one valid basis in $\mathbb{R}^3$. According to \textit{Defination 2.11}, a basic solution is degenerate if more than $n-m$ components of the basic solution are zero. In this case $n = 5$ and $m = 3$. We have $ > 2$ zeroes, thus the vector is degenerate.\\
+
+Finally, for vector (1,0,0,1,0) we see that it does not satisfy $Ax = b$
+\[3(1) + 2(0) + 7(0) -1(1) +4(0) = 2 \ne 7\]
+Thus, it is \textbf{NOT} a basic solution and is also \textbf{NOT} degenerate.
+
+\subsection*{b}
+Vector (0.5,1,0.5,0,0) and vector (1,0,0,1,0) are not basic solutions. Thus, according to \textit{Theorem 2.3}, they are not verticies. \\
+Vector (1,2,0,0,0) is a vertex as its a basic solution. \\
+Consider the cost function $c = \sum_{i \in I(x^*)} a_i$ where $I(x^*)$ is all the constraints active at $x^*$ and $a_i$ is the set of all cosntraints. This corresponds to, 
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \textbf{$x_1$} & \textbf{$x_2$} & \textbf{$x_3$} & \textbf{$x_4$} & \textbf{$x_5$}\\ \hline
+    -1 & 1 & 1 & 2 & -2 \\ 
+    3 & 2 & 7 & -1 & 4 \\ 
+    -2 & 4 & 6 & 2 & -1 \\ 
+    0 & 0 & 1 & 1 & 1 \\ \hline
+    $0x_1$ & $7x_2$ & $15x_3$ & $4x_4$ & $2x_5$ \\ \hline
+    \end{tabular}
+    \end{table}
+With $\mathbf{c^T = [0,7,15,4,2]}$ and $x^{*T} = [1,2,0,0,0]$, we get $c^Tx^* = 14$. Since, $x^*$ is a basic feasible solution, \textit{Theorem 2.2 (c)} says that $x^*$ is the uniqure solution to $\{ a_{i}^T x = b_i | i \in I(x^*)\}$, thus all other feasuble $x$ have $c^T x \ne c^T x^*$ and $a_{i}^T x > b_i$ for some $i \in I(x^*)$. Thus $c^T x > c^T x^*$.
+
 
 \section*{Problem 3}
-\subsection{a}
+\subsection*{a}
 
 We first consider the case where $m\geq n$. In this case, for any $y=\sum_{i=1}^n\lambda_iA_i$ such that $y\in C$, even if \textbf{all} $n$ coefficients are nonzero, this is still $m$ or fewer nonzero coefficients.
 
@@ -97,7 +158,7 @@ $$
 $$
 is a basic (feasible) solution in $Q$ conforming to Theorem 2.4. Since $\lambda^*\in Q$, by the definiton of $Q$ we have $y=\sum_{i=1}^n\lambda_i^*A_i$. Furthermore, since the first case of $\lambda_i^*$ applies at $m$ indices, there can be \textbf{at most} $m$ non-zero elements in $\lambda^*$. Thus we have shown that for any $y\in C$, we can find the required $\lambda_1,\cdots, \lambda_n$, namely our $\lambda^*$. Q.E.D
 
-\subsection{b}
+\subsection*{b}
 
 We first consider the case where $m+1\geq n$. In this case, for any $y=\sum_{i=1}^n\lambda_iA_i$ such that $y\in C$, even if \textbf{all} $n$ coefficients are nonzero, this is still $m+1$ or fewer nonzero coefficients.
 
@@ -183,7 +244,7 @@ Also, consider a set of vectors $a_i \in \mathbb{R}^n$ where $i = 1,2,...n-1$, t
 We know that , $a_{i}^T u = a_{i}^T v = b_i$ \\
 \[ = \lambda b_i + (1-\lambda) b_i\]
 \[ = b_i \]
-as $\lambda \in [0,1]$. Thus $z \in P$ and $a_{i}^T z = b_i$ for $i=1,2,...n-1$. $L_1 \Rightarrow L_2$\\
+as $\lambda \in [0,1]$. Thus $z \in P$ and $a_{i}^T z = b_i$ for $i=1,2,...n-1$. Thus the first $(n-1)$ constraints hold. For the remaining $(m-n)$ constrains $a_{i}^T u \ge b_i$ and $a_{i}^T v \ge v$, we note that since $u,v \in P$ , $a_{i}^T x = \lambda a_{i}^T u + (1 - \lambda) a_{i}^T v \ge \lambda b_i + (1-\lambda) b_i$. Thus, $L_1 \Rightarrow L_2$\\
 
 \underline{$\mathbf{L_2 \Rightarrow L_1}$} \\
 
@@ -195,6 +256,73 @@ Consider $G = \{ z \in \mathbb{R}^n : a_{i}^T z = b_i, i = 1,2,...n-1\}$. $G$ is
         A non-emtpy and bounded polyhedron is a convex hull of its extreme points
     }
 }
-Thus $L_2 = \{\lambda u + (1- \ lmabda)v | \lambda \in [0,1]\}$. $L_2 \Rightarrow L_1$.
+Thus $L_2 = \{\lambda u + (1- \lambda)v | \lambda \in [0,1]\}$. $L_2 \Rightarrow L_1$.
+
+\section*{Problem 5}
+\subsection*{a}
+Consider two distinct, basis $B_1 = [A_{B_1(1)},A_{B_1(2)},....A_{B_1(m)}]$ and $B_2 = [A_{B_2(1)},A_{B_2(2)},...A_{B_2(m)}]$. Also consider a basic solution $x$ of both $B_1$ and $B_2$. Since $P$ is a polyhedron in standard form and $x$ is a basic solution for $B_1$, 
+
+\[
+    x_i = 
+    \begin{cases}
+        y_{B_j}, & i = B_1(j)\\
+        0,              & i\notin \{B_1(1), B_1(2),...B_1(m)\}
+    \end{cases}
+\]
+Similarly, since $x$ is a basic solution for $B_2$,
+\[
+    x_i = 
+    \begin{cases}
+        z_{B_j}, & i = B_2(j)\\
+        0,              & i\notin \{B_2(1), B_2(2),...B_2(m)\}
+    \end{cases}
+\]
+Since $\{ B_1(i)\} \ne \{B_2(i)\}$, there exists at least one element of $B_1$ that is not in $\{B_2(i)\}$, and conversely at least one element in $B_2$ that is not in $\{B_1(i)\}$. Thus, there must be some $k$, $1 \le k \le n$ for which $k \in \{B_1(i)\}, k \notin \{B_2(i)\}$ . Thus $x_k = 0$. But, because $k \in \{B_1(i)\}$, $y_{Bk} = 0$ and we have
+
+\[
+    x_i = 
+    \begin{cases}
+        y_{B_j}, & i = B_1(j)\\
+        0,              & i\notin \{B_1(1), B_1(2),...B_1(m)\}\ \text{or}\ i = k
+    \end{cases}
+\]
+Thus there are $> n-m$ zero elements in $x$. Thus by \textit{Defination 2.11}, $x$ is degenerate.
+
+\subsection*{b}
+Let $x^*$ be a degenerate basic solution. Thus, by \textit{Defination 2.11}, $x^*$ has $> n-m$ zeroes. Now, consider $A$ is a square matrix, i.e $m = n$. Then, there exists only 1 bases. Note $x^*$ can be a degenerate solution even if $m=n$ if one of the basic variables = 0. If this is the case, we have a degenerate basic solution with only 1 basis and there cannot be two or more distinct bases associated with $x^*$ . This is thus \textbf{NOT} true.
+
+\subsection*{c}
+Consider the following system of inequalities
+
+\[ x_1 + x_2 = 1\]
+\[x_2 + x_3 = 1\]
+\[x_1,x_2,x_3 \ge 0\]
+This system can have 3 potential basis, 
+\[B_1 =  \begin{bmatrix}
+    1 & 1  \\
+    0 & 1 \\
+    \end{bmatrix}\]
+Given by columns 1 and 2.
+
+\[B_2 =  \begin{bmatrix}
+    1 & 0  \\
+    1 & 1 \\
+    \end{bmatrix}\]
+Given by columns 2 and 3.
+\[B_3 =  \begin{bmatrix}
+    1 & 0  \\
+    0 & 1 \\
+    \end{bmatrix}\]
+Given by columns 1 and 3.
+
+Basic solution $u^T = [0,1,0]$ corresponds to basis $B_1$ and $B_2$. The basic solution $v^T = [1,0,1]$ corresponds to the basis $B_3$. Also, by \textit{Defination 2.11} the basic solution $u$ is degenerate. However, there is no other degenerate basic solution. Thus $u$ is a degenerate basic solution that is \textbf{NOT} adjacent to any other basic solution. This is thus \textit{NOT} true.
+
+\section*{Problem 6}
+\subsection*{a}
+We prove by controdiction. Let $f(x)$ is not an extreme point, then there exists $f(y), f(z) \in Q$ with $\lambda \in [0,1]$ s.t.\\
+\[f(x) = \lambda f(y) + (1-\lambda)f(z)\]
+We apply $g$ to each side to get \\
+\[g(f(x)) = g(\lambda f(y) + (1-\lambda)f(z)) + d\]
+
 
 \end{document}
