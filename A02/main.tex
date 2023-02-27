@@ -167,4 +167,34 @@ $$
 $$
 is a basic (feasible) solution in $Q$ conforming to Theorem 2.4. Since $\lambda^*\in Q$, by the definiton of $Q$ we have $\bar{y}=\sum_{i=1}^n\lambda_i^*\bar{A_i}$, which then implies that $y=\sum_{i=1}^n\lambda_iA_i$ \textbf{and} $\sum_{i=1}^n\lambda_i=1$. Furthermore, since the first case of $\lambda_i^*$ applies at $m+1$ indices, there can be \textbf{at most} $m+1$ non-zero elements in $\lambda^*$. Thus we have shown that for any $y\in C$, we can find the required $\lambda_1,\cdots, \lambda_n$, namely our $\lambda^*$. Q.E.D
 
+
+\section*{Problem 4}
+For this question, we need to prove
+
+\[ \{\lambda u + (1-\lambda) v | \lambda \in [0,1] \} = \{z \in P | a_{i}^{'}z =  b_i, i = 1,....n\} \]
+in both directions. Let the set in the LHS of the above equation be $L_1$ and the set in the RHS be $L_2$. Thus we need to prove $L_1 \Rightarrow L_2$ and $L_2 \Rightarrow L_1$. \\
+
+\underline{$\mathbf{L_1 \Rightarrow L_2}$} \\
+
+Let $z \in L_1$, then $z = \lambda u + (1 - \lambda) v$ where $u$ and $v$ $\in P$. Since $P$ is a polyhedron made by the intersection of convex hyperplanes, it is also convex. Thus, the line joining two points $u$, $v$ $\in P$ also $\in P$. \\
+Also, consider a set of vectors $a_i \in \mathbb{R}^n$ where $i = 1,2,...n-1$, then, 
+\[ a_{i}^T z = a_{i}^T \lambda u + a_{i}^T (1 - \lambda)v \]
+\[ = \lambda a_{i}^T u + (1-\lambda)a_{i}^T v\] 
+We know that , $a_{i}^T u = a_{i}^T v = b_i$ \\
+\[ = \lambda b_i + (1-\lambda) b_i\]
+\[ = b_i \]
+as $\lambda \in [0,1]$. Thus $z \in P$ and $a_{i}^T z = b_i$ for $i=1,2,...n-1$. $L_1 \Rightarrow L_2$\\
+
+\underline{$\mathbf{L_2 \Rightarrow L_1}$} \\
+
+Consider $G = \{ z \in \mathbb{R}^n : a_{i}^T z = b_i, i = 1,2,...n-1\}$. $G$ is thus a one-dimensional set (a line) as its the intersection of $n-1$ linearly independent hyperplanes in an $n$ dimensional space. Also, we have $L_2 = P \cap G$. Arguing geometrically, since $P$ is a convex polyhedron and $G$ is a line, $ P \cap G$ is also a line. The convex subset of a line has only 2 extreme points. Thus, $P \cap G = L_2$ has only 2 basic feasible solutions. Since $u,v \in P$, $u$ and $v$ are the two basic feasible solutions $\in L_2$. According the theorem 2.9 from the book \textit{Introduction to Linear Optimization by Dimitris Bertsimas} (Pg. 68)
+
+\noindent\fbox{%
+    \parbox{\textwidth}{
+        Theorem 2.9 \\
+        A non-emtpy and bounded polyhedron is a convex hull of its extreme points
+    }
+}
+Thus $L_2 = \{\lambda u + (1- \ lmabda)v | \lambda \in [0,1]\}$. $L_2 \Rightarrow L_1$.
+
 \end{document}
