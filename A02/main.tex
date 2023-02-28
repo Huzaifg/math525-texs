@@ -232,10 +232,10 @@ is a basic (feasible) solution in $Q$ conforming to Theorem 2.4. Since $\lambda^
 \section*{Problem 4}
 For this question, we need to prove
 
-\[ \{\lambda u + (1-\lambda) v | \lambda \in [0,1] \} = \{z \in P | a_{i}^{'}z =  b_i, i = 1,....n\} \]
-in both directions. Let the set in the LHS of the above equation be $L_1$ and the set in the RHS be $L_2$. Thus we need to prove $L_1 \Rightarrow L_2$ and $L_2 \Rightarrow L_1$. \\
+\[ \{\lambda u + (1-\lambda) v | \lambda \in [0,1] \} = \{z \in P | a_{i}^{'}z =  b_i, i = 1,....n\} \]
+in both directions. Let the set in the LHS of the above equation be $L_1$ and the set in the RHS be $L_2$. Thus we need to prove $L_1 \subseteq L_2$ and $L_2 \subseteq L_1$. 
 
-\underline{$\mathbf{L_1 \Rightarrow L_2}$} \\
+\underline{$\mathbf{L_1 \subseteq L_2}$} \\
 
 Let $z \in L_1$, then $z = \lambda u + (1 - \lambda) v$ where $u$ and $v$ $\in P$. Since $P$ is a polyhedron made by the intersection of convex hyperplanes, it is also convex. Thus, the line joining two points $u$, $v$ $\in P$ also $\in P$. \\
 Also, consider a set of vectors $a_i \in \mathbb{R}^n$ where $i = 1,2,...n-1$, then, 
@@ -244,19 +244,52 @@ Also, consider a set of vectors $a_i \in \mathbb{R}^n$ where $i = 1,2,...n-1$, t
 We know that , $a_{i}^T u = a_{i}^T v = b_i$ \\
 \[ = \lambda b_i + (1-\lambda) b_i\]
 \[ = b_i \]
-as $\lambda \in [0,1]$. Thus $z \in P$ and $a_{i}^T z = b_i$ for $i=1,2,...n-1$. Thus the first $(n-1)$ constraints hold. For the remaining $(m-n)$ constrains $a_{i}^T u \ge b_i$ and $a_{i}^T v \ge v$, we note that since $u,v \in P$ , $a_{i}^T x = \lambda a_{i}^T u + (1 - \lambda) a_{i}^T v \ge \lambda b_i + (1-\lambda) b_i$. Thus, $L_1 \Rightarrow L_2$\\
+as $\lambda \in [0,1]$. Thus $z \in P$ and $a_{i}^T z = b_i$ for $i=1,2,...n-1$. Thus the first $(n-1)$ constraints hold. For the remaining $(m-n)$ constrains $a_{i}^T u \ge b_i$ and $a_{i}^T v \ge v$, we note that since $u,v \in P$ , $a_{i}^T x = \lambda a_{i}^T u + (1 - \lambda) a_{i}^T v \ge \lambda b_i + (1-\lambda) b_i$. Thus, $L_1 \subseteq L_2$\\
 
-\underline{$\mathbf{L_2 \Rightarrow L_1}$} \\
+\underline{$\mathbf{L_2 \subseteq L_1}$} \\
 
-Consider $G = \{ z \in \mathbb{R}^n : a_{i}^T z = b_i, i = 1,2,...n-1\}$. $G$ is thus a one-dimensional set (a line) as its the intersection of $n-1$ linearly independent hyperplanes in an $n$ dimensional space. Also, we have $L_2 = P \cap G$. Arguing geometrically, since $P$ is a convex polyhedron and $G$ is a line, $ P \cap G$ is also a line. The convex subset of a line has only 2 extreme points. Thus, $P \cap G = L_2$ has only 2 basic feasible solutions. Since $u,v \in P$, $u$ and $v$ are the two basic feasible solutions $\in L_2$. According the theorem 2.9 from the book \textit{Introduction to Linear Optimization by Dimitris Bertsimas} (Pg. 68)
+We know that $a_1,\cdots,a_{n-1}$ are linearly independent. Therefore, since each constraint $a_i'x=b_i$ describes a hyperplane in $\mathbb{R}^n$, each of the $n-1$ constraints $a_i'x=b_i, i=1,\cdots, n-1$ superimposed yields a $n-(n-1)=1$ dimensional space (line) in $\mathbb{R}^n$. We describe this space using $G$.
 
-\noindent\fbox{%
-    \parbox{\textwidth}{
-        Theorem 2.9 \\
-        A non-emtpy and bounded polyhedron is a convex hull of its extreme points
-    }
-}
-Thus $L_2 = \{\lambda u + (1- \lambda)v | \lambda \in [0,1]\}$. $L_2 \Rightarrow L_1$.
+$$
+G = \{ z \in \mathbb{R}^n : a_{i}' z = b_i, i = 1,2,...n-1\}
+$$
+Consider any vector $z\in L_2$. By the definition of $L_2$, it is also true that $z\in G$. By the definition of $u$ and $v$, we also know that $u,v\in G$.
+
+Consider $(u-v)$. This vector is orthogonal to all vectors $a_i, i=1,\cdots, n-1$, as $a_i(u-v)=a_iu-a_iv=b_i-b_i=0$. Therefore, $(u-v)$ must be parallel to the line described by $G$, and from any point on $G$ we could add $c(u-v), c\in\mathbb{R}$ to that point to obtain \textbf{any point $z\in G$}. Thus we can describe any $z\in G$ as $z=v+\lambda(u-v)$. Thus we have $G=\{z\in\mathbb{R}^n|z=v+\lambda(u-v)\}$. We note that $L_2$ is the subset of $G$ containing items that are \emph{also} in $P$, i.e. $L_2=\{z\in P|z=v+\lambda(u-v)\}$. \\
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{4b-general}
+\centering
+\caption{A 1-dimensional representation of $u$, $v$, $z$, $G$, and $(u-v)$}
+\end{figure}
+
+All that remains is to show that $\{z\in P|z=v+\lambda(u-v)\}=\{\lambda u + (1-\lambda) v; \lambda\in[0,1]\}$ Consider $\lambda$:
+
+\underline{$\lambda < 0$} \\
+
+Suppose there exists some $z\in P$ such that $\lambda < 0$. This situation is shown in Figure 2. Note that in this case, $v$ is on the line segment between $u$ and $z$. By definition, this means that $v$ is not an extreme point, reaching a contradiction. Therefore $\forall z=v+\lambda(u-v)|\lambda<0$, $z$ is not in $P$.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{4b-negative}
+\centering
+\caption{A 1-dimensional representation of $z=v+\lambda(u-v); \lambda<0$}
+\end{figure}
+
+\underline{$\lambda > 1$} \\
+
+Suppose there exists some $z\in P$ such that $\lambda > 1$. This situation is shown in Figure 2. Note that in this case, $u$ is on the line segment between $v$ and $z$. By definition, this means that $u$ is not an extreme point, reaching a contradiction. Therefore $\forall z=v+\lambda(u-v)|\lambda>1$, $z$ is not in $P$.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{4b-positive}
+\centering
+\caption{A 1-dimensional representation of $z=v+\lambda(u-v); \lambda>1$}
+\end{figure}
+
+Therefore, if $z\in P$, it must hold that $\lambda>0$ and $\lambda < 1$, and we can rewrite $L_2$ as $\{v+\lambda(u-v)|\lambda\in[0,1]\}$. Finally, we rearrange the inner terms to yield
+
+$$
+L_2=\{\lambda u+(1-\lambda)v)|\lambda\in[0,1]\}=L_1
+$$
 
 \section*{Problem 5}
 \subsection*{a}
