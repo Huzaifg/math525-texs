@@ -39,8 +39,41 @@
 
 \tableofcontents
 \newpage
+\section*{Problem 1}
 
-Problem 2
+Consider any point $y\in S$. We will show that $f(x^*)\leq f(y)$.
+
+We know that $x^*$ is a local minimum, i.e. that $\exists\epsilon>0$ such that $\forall x\in S, ||x-x^*||\leq \epsilon$ we have $f(x^*)\leq f(x)$. If $||y-x^*||\leq \epsilon$, then by the definition of a local minimum we know $f(x^*)\leq f(y)$. Thus the only remaining case to consider is when $||y-x^*||>\epsilon$
+
+Consider $a=\frac{\epsilon}{||y-x^*||}\in\mathbb{R}$. Since $\epsilon> 0$ and $||y-x^*||>\epsilon$, it must hold that $0<a<1$, or equivalently that $a\in[0, 1]$.
+
+Consider the point $z=ay + (1-a)x^*$, a convex combination of $y$ and $x^*$. Since $S$ is a convex set, $z\in S$. We have
+
+\begin{equation}
+\begin{split}
+||z-x^*|| &= ||\bigl(ay + (1-a)x^*\bigr) - x^*|| \\
+&= ||\bigl(ay + x^*-ax^*\bigr) - x^*|| \\
+&= ||ay -ax^*|| \\
+&= a||y -x^*|| \\
+&= \frac{\epsilon}{||y-x^*||}||y -x^*|| \\
+&= \epsilon\\
+\end{split}
+\end{equation}
+
+Since $||z-x^*|| = \epsilon$ we have $f(x^*)\leq f(z)$. Since $f$ is a convex function, we know that
+
+\begin{equation}
+\begin{split}
+f(x^*)\leq f(z) = f(ay + (1-a)x^*) &\leq af(y) + (1-a) f(x^*)\\
+f(x^*) &\leq af(y) + (1-a) f(x^*) \\
+af(x^*) &\leq af(y) \\
+f(x^*) &\leq f(y) \\
+\end{split}
+\end{equation}
+
+Note that the last step only holds as $a$ must be positive. Thus $\forall y\in S$, we know $f(x^*)\leq f(y)$. By definition, $x^*$ is a global maximum. Q.E.D. 
+
+\section*{Problem 2}
 
 We note that Theorem 2.6 from the lecture notes states that a polyhedron contains an extreme point if and only if it contains a line.
 
