@@ -81,4 +81,52 @@ Standard form problems cannot possibly contain a line, as they are confined as a
 
 Just because we can turn a general form polyhedron into a standard form polyhedron with the same optimal cost, this does not mean that the polyhedron is equivalent. By transforming a polyhedron into standard form, we add dimensions such that we can maintain the constraints of the original problem through a polyhedron in the positive orthant. The fact that the general form polyhedron and the standard form polyhedron (may) lie in different dimensionalities is enough to reason that they may not be equivalent, despite leading to an equivalent LP problem. For this reason, we cannot conclude that every nonempty polyhedron contains an extreme point.
 
+\section*{Problem 4}
+
+We have $P=\{x\in\mathbb{R}^n: a_i'x=b_i, i=1...m\}$, where P is bounded and $m\geq n$. We also have $Q=\{x\in P: a'x=b\}$ for some $a\in\mathbb{R}^n, b\in\mathbb{R}$. We show that every extreme point of $Q$ is either an extreme point of $P$ or a convex combination of two adjacent extreme points of $P$.\\
+
+Suppose that $Q$ has an extreme point $x^*$. Since $x^*$ is an extreme point, Theorem 2.3 from the lecture notes tells us that there are $n$ linearly independent constraints active at $x^*$. We know from the definition of $Q$ that $a'x=b$ is active at $x^*$, thus the remaining constraints active at $x^*$ must come from the constraints of $P$. Let $I(x^*)=\{i\in\{1...m\}:a_i'x=b_i\}$ define these remaining constraints from $P$. Note that $a$ may or may not be linearly independent with this set, so we consider each case:\\
+
+\underline{$a$ is linearly dependent with $\{a_i:i\in I(x^*)\}$}\\
+
+If $a$ is linearly dependent with this set, then the $n$ linearly independent constraints must all lie in $\{a_i:i\in I(x^*)\}$, and $x^*$ is also an extreme point of $P$.\\
+
+\underline{$a$ is linearly independent with $\{a_i:i\in I(x^*)\}$}\\
+
+If $a$ is linearly independent with this set, then of the $n$ linearly independent constraints active at $x^*$ in $Q$, $(n-1)$ of them must come from  $\{a_i:i\in I(x^*)\}$. These $(n-1)$ linearly independent constraints \textbf{do not span} $\mathbb{R}^n$, and there must exist some nonzero $d\in\mathbb{R}^n$ such that $\forall i\in I(x^*)\quad a_i'd=0$.\\
+
+Let $y=x^*+\lambda d$. $\forall \lambda\in\mathbb{R}, i\in I(x^*)$, we have $a_i'y=a_i'x^*+\lambda a_i'd$. Since $a_i'd=0$, we have $a_i'y = a_i'x^*=b_i$. Thus $I(y)\supseteq I(x^*)$ for any $y$. \\
+
+$Q$ is bounded, meaning that if we travel in the direction of any nonzero vector from $x^*$ we must eventually reach a constraint. This is easily shown from the definition of a bounded polyhedron, keeping in mind that we are adding a nonzero vector to a point in $Q$.\\
+
+Suppose, going in the direction of $d$, we find some $\lambda^+>0, j\notin I(x^*)$ at which $a_j'(x^*+\lambda^+d)=b_j$. $a_j$ cannot be expressed as a linear combination of $\{a_i: i\in I(x^*)\}$. This is because $a_i'd=0$ for all $a_i$, and
+
+$$
+a_j'(x^*)>b_j \text{ and } a_j'(x^* + \lambda^+ d) = b_j \Rightarrow a_j'd \neq 0\\
+$$
+
+Thus $\{a_i: i\in I(x^*)\cup\{j\}\}$ contains $n$ linearly independent vectors, and we have $y^+=x^*+\lambda^+ d$ is an extreme point.\\
+
+Similarly, we can go in the direction $-d$, until, for some $\lambda^-> 0, k\notin I(x^*)$ at which $a_k'(x^*-\lambda^-d)=b_k$, and we find that $a_k$ is also linearly independent from $\{a_i\}$, making  $y^-=x^*-\lambda^- d$ is an extreme point. We note that $y^+$ and $y^-$ share $(n-1)$ active constraints, and that $y^+\neq y^-$, as
+$$
+y^+-y^-=x^*+\lambda^+ d - (x^*-\lambda^- d) = d(\lambda^++\lambda^-)>0
+$$
+Thus $y^+$ and $y^-$ are distinct adjacent basic feasible solutions. Furthermore, since $x^*$ lies on the line segment between $y^+$ and $y^-$, it can be expressed as a linear combination of the two, with
+
+\begin{equation}
+\begin{split}
+x^* &= by^+ + (1-b)y^-\\
+x^* &= bx^* + b\lambda^+d + x^* - \lambda^-d - bx^* + b\lambda^-d\\
+0 &= b\lambda^+d - \lambda^-d + b\lambda^-d\\
+\lambda^-d &= b(\lambda^+d+\lambda^-d)\\
+b&=\frac{\lambda^-}{\lambda^+ + \lambda^-}
+\end{split}
+\end{equation}
+
+Since $\lambda^->0, \lambda^+>0$, we know that $0<b<1$, and $x^*$ is actually a convex combination of two adjacent extreme points of $P$, $y^+$ and $y^-$. Q.E.D.
+
+
+
+
+
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  4 MAR 2023 12:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  4 MAR 2023 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,7 +513,52 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \newpage
-              [1] [2] (main.aux)
+              [1]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+[3] [4] (main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 10.12pt have occurred.
@@ -522,31 +567,33 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11610 strings out of 475385
- 181712 string characters out of 2778796
- 551263 words of memory out of 3000000
- 32815 multiletter control sequences out of 15000+600000
- 479338 words of font info for 66 fonts, out of 8000000 for 9000
+ 11615 strings out of 475385
+ 181760 string characters out of 2778796
+ 553263 words of memory out of 3000000
+ 32816 multiletter control sequences out of 15000+600000
+ 479646 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,19n,77p,1033b,516s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmex10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmss17.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/G/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/G/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/G/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/G/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/G/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (3 pages, 149220 bytes).
+10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/G/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/G/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/G/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/G/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users
+/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on main.pdf (5 pages, 171916 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
