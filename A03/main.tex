@@ -125,8 +125,48 @@ b&=\frac{\lambda^-}{\lambda^+ + \lambda^-}
 
 Since $\lambda^->0, \lambda^+>0$, we know that $0<b<1$, and $x^*$ is actually a convex combination of two adjacent extreme points of $P$, $y^+$ and $y^-$. Q.E.D.
 
+\section*{Problem 5}
 
+We consider this problem geometrically, by looking at a visual of $P$:
 
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{5_geometry}
+\centering
+\caption{The geometry of $P$, along with vertices $A, B, C$}
+\end{figure}
 
+We can see three vertices of $P$, most notably, $C=\begin{bmatrix}0\\0\\1\end{bmatrix}$. From $C$, we can see that feasible directions from $C$, geometrically speaking, include going towards $B$, going towards $A$, or going in a direction in between $A$ and $B$, as shown in Figure 2.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{5_feasible_directions}
+\centering
+\caption{Feasible directions from $A$}
+\end{figure}
+
+ Arithmetically speaking, any of these directions $d$ can be represented as a convex combination of $(A-C)$ and $(B-C)$: 
+
+\begin{equation}
+d=\lambda(A-C) + (1-\lambda) (B-C); \lambda\in[0, 1]
+\end{equation}
+
+Arithmetically speaking, we can only prove that $d$ is a feasible solution at $C$ if $y=C+\theta d\in P$ for some positive $\theta$:
+
+\begin{equation}
+\begin{split}
+y &= C + \theta d\\
+y &= C + \theta\bigl[\lambda (A-C) + (1-\lambda) (B-C)\bigr]\\
+y &= C + \theta\lambda A - \theta\lambda C + \theta(1-\lambda)B - \theta(1-\lambda)C \\
+y &= \begin{bmatrix}0\\0\\1\end{bmatrix} + \begin{bmatrix}\theta\lambda\\0\\0\end{bmatrix} - \begin{bmatrix}0\\0\\\theta\lambda\end{bmatrix} + \begin{bmatrix}0\\\theta(1-\lambda)\\0\end{bmatrix} - \begin{bmatrix}0\\0\\\theta(1-\lambda)\end{bmatrix} \\
+y &= \begin{bmatrix}\theta\lambda\\\theta-\theta\lambda\\1-\theta\end{bmatrix}\\
+\end{split}
+\end{equation}
+
+Suppose $\theta\leq 1$; this means that $y_3\geq 0$. Since $0\leq \lambda \leq 1$, $\theta \geq \theta \lambda$ and $y_2\geq 0$. Finally, since $\theta>0, \lambda \geq 0$ and $y_1\geq 0$. Finally, we have 
+
+$$
+y_1+y_2+y_3=(\theta\lambda) + (\theta - \theta\lambda) + (1-\theta)=1
+$$
+
+Thus for any $\lambda\in[0,1], 0<\theta\leq 1$, we have $x+\theta d\in P$, and $d\in\{\lambda(A-C) + (1-\lambda) (B-C); \lambda\in[0, 1]\}$ is the set of feasible directions at $C$. Q.E.D.
 
 \end{document}
