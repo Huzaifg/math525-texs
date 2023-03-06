@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  5 MAR 2023 00:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  5 MAR 2023 22:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,7 +573,22 @@ Package pdftex.def Info: 5_feasible_directions.PNG  used on input line 141.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./5_geometry.PNG>] [5 <./5_feasible_directions.PNG>] (main.aux)
+[4 <./5_geometry.PNG>] [5 <./5_feasible_directions.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+
+ []
+
+[6] (main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 10.12pt have occurred.
@@ -582,8 +597,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11677 strings out of 475385
- 183070 string characters out of 2778796
+ 11678 strings out of 475385
+ 183076 string characters out of 2778796
  553263 words of memory out of 3000000
  32865 multiletter control sequences out of 15000+600000
  479646 words of font info for 67 fonts, out of 8000000 for 9000
@@ -594,21 +609,22 @@ Here is how much of TeX's memory you used:
 /cmbx12.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmex10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmmi10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/G/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/G/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/G/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/G/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users
-/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on main.pdf (6 pages, 235400 bytes).
+lic/amsfonts/cm/cmmi6.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/G/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/G/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/G/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/G/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users
+/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/U
+sers/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb>
+Output written on main.pdf (7 pages, 249964 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 131 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

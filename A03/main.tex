@@ -169,4 +169,61 @@ $$
 
 Thus for any $\lambda\in[0,1], 0<\theta\leq 1$, we have $x+\theta d\in P$, and $d\in\{\lambda(A-C) + (1-\lambda) (B-C); \lambda\in[0, 1]\}$ is the set of feasible directions at $C$. Q.E.D.
 
+\section*{Problem 6}
+
+To prove this statement, we must prove both directions of the claim. We do so below:
+
+\underline{$d$ is a feasible direction at $x\Rightarrow Ad=0, d_i\geq 0\space\forall i$ such that $x_i=0$}
+
+Since $d$ is a feasible direction at $x$, we know that $\exists \theta>0$ such that $(x+\theta d)\in P$. Thus, using the equality constraints of $P$, we have
+
+$$
+A(x+\theta d) = b \Rightarrow Ax + \theta Ad = b
+$$
+
+But since $x\in P$, $Ax=b$. Thus we have
+
+$$
+b + \theta Ad = b \Rightarrow \theta Ad = 0
+$$
+
+Since $\theta>0$, it must be the case that $Ad=0$.
+
+Now, consider any coefficient $x_i=0$ in $x$. Since $(x+\theta d)\in P$, we know that 
+
+$$
+(x+\theta d)_i = x_i + \theta d_i \geq 0
+$$
+
+Since $x_i=0$, we have
+
+$$
+\theta d_i \geq 0
+$$
+
+And, since $\theta>0$, it must hold that $d_i\geq 0$. This completes this direction of the proof.
+
+\underline{$Ad=0, d_i\geq 0\space\forall i$ such that $x_i=0\Rightarrow d$ is a feasible direction at $x$}
+
+To show that $d$ is feasible, we must determine some $\theta>0$ such that $x+\theta d\in P$. For $x+\theta d$ to be in $P$, it must satisfy the equality constraints $A(x+\theta d) = b$, and the non-negativity constraint $(x+\theta d)\geq 0$.\\
+
+To show that $(x+\theta d)$ satisfies the equality constraint, we use the fact that $Ad=0$:
+
+$$
+A(x+\theta d) = Ax + \theta Ad = b + \theta(0)=b
+$$
+Note that the equality constraint holds for any positive real $\theta$.\\
+
+To show that $(x+\theta d)$ satisfies the non-negativity constraint, we consider each coefficient $(x+\theta d)_i=x_i+\theta d_i$ based on the signs of $x_i$ and $d_i$:
+
+\textbf{If $x_i = 0$}, then we know from the problem's description that $d_i\geq 0$, and $x_i+\theta d_i\geq 0$ for any valid $\theta$.
+
+\textbf{If $x_i>0, d_i\geq 0$}, then we know that $x_i+\theta d_i\geq 0$ for any valid $\theta$.
+
+\textbf{If $x_i>0, d_i<0$}, then for all theta above $\theta_i=\frac{x_i}{-d_i}>0$, we will find that $x_i+\lambda d_i<0$. For this reason, we set $\theta^*=\text{min}_{i: x_i>0, d_i<0} \theta_i$ as the upper bound on theta.\\
+
+Looking at the above constraints, all will be satisfied for $\theta^*$. Thus $(x+\theta^*d)\in P$ and $d$ is a feasible direction at $x$. This completes this direction of the proof.
+
+Since we have completed both directions of the proof, we have completed the proof. Q.E.D.
+
 \end{document}
