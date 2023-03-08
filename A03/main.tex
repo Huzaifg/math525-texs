@@ -37,8 +37,6 @@
     \vfill
 \end{titlepage}
 
-\tableofcontents
-\newpage
 \section*{Problem 1}
 
 Consider any point $y\in S$. We will show that $f(x^*)\leq f(y)$.
@@ -79,7 +77,14 @@ We note that Theorem 2.6 from the lecture notes states that a polyhedron contain
 
 Standard form problems cannot possibly contain a line, as they are confined as a subset of the positive orthant $\{x|x\geq 0\}$. This is not a requirement of general form problems, and as such they can contain a line. For example, the polyhedron $P=\{x\in\mathbb{R}^2|x_1\geq 4\}$ comprises a half-space, containing many lines (such as $x_1=5$).
 
-Just because we can turn a general form polyhedron into a standard form polyhedron with the same optimal cost, this does not mean that the polyhedron is equivalent. By transforming a polyhedron into standard form, we add dimensions such that we can maintain the constraints of the original problem through a polyhedron in the positive orthant. The fact that the general form polyhedron and the standard form polyhedron (may) lie in different dimensionalities is enough to reason that they may not be equivalent, despite leading to an equivalent LP problem. For this reason, we cannot conclude that every nonempty polyhedron contains an extreme point.
+Just because we can turn a general form polyhedron into a standard form polyhedron with the same optimal cost, this does not mean that the polyhedron is equivalent. By transforming a polyhedron into standard form, we add dimensions such that we can maintain the constraints of the original problem through a polyhedron in the positive orthant. The fact that the general form polyhedron and the standard form polyhedron (may) lie in different dimensionalities is enough to reason that they may not be equivalent, despite leading to an equivalent LP problem. For this reason, we cannot conclude that every nonempty polyhedron contains an extreme point. \\
+Additionally, we can also reason with the help of an example where we first show a LP problem defined in standard form which contains a line and thus no vertex. We then define a equivalent LP problem in standard form which does not contain a line and thus has a vertex. \\
+Consider a polyhedron given by
+\[ P_2 = \{ \textbf{x} \in \mathbb{R}^5 | x_1-x_2+x_3-x_4 - x_5 = 0, \textbf{x} \ge 0\}\]
+This polyhedron thus has a vertex at \(\textbf{0} \in \mathbb{R}^5\). Now this same LP problem can be expressed equivalently in general form with the feasible set described by the polyhedron 
+\[P_2 = \{\textbf{x} \in \mathbb{R}^2 | x_1 + x_2 \ge 0\}\]
+This polyhedron contains a line \(x_1 + x_2 = 0\). Thus, we can see that all though the two LP problems are equivalent, the feasible set is geometrically very different.
+
 
 \section*{Problem 4}
 
