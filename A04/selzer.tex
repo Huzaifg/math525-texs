@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+\section{1}
+\subsection{a}
+We know that, for a basic feasible solution $x$ associated with basis matrix $B$, that $\bar{c}_i>0$, for all indices $i$ within the set of nonbasic indices $N$. We must show that $x$ is a unique optimal solution.
+
+Consider any arbitrary feasible solution $y$, and the vector $y-x$. Since both $x$ and $y$ are feasible, we have $Ax=Ay=b$, meaning that $Ad=Ax-Ay=b-b=0$.
+
+$Ad$ is equivalent to the form
+
+$$
+Bd_B + \sum_{i\in N} A_id_i=0
+$$
+
+Since $B$ is invertible, we have 
+
+$$
+d_B = -\sum_{i\in N}B^{-1}A_id_i
+$$
+
+and
+
+$$
+c'd=c'_Bd_B + \sum_{i\in N}c_id_i=\sum_{i\in N}(c_i-c'BB^{-1}A_i)d_i=\sum_{i\in N}\bar{c_i}d_i
+$$
+
+For all nonbasic indices $i\in N$, we have $x_i=0$, and since $y$ is a feasible solution, we have $y_i\geq 0$. Therefore $d_i\geq 0$. We also know that $c_i>0$ for all $i\in N$. Therefore $c'd\geq 0$. 
+
+Furthermore, since all $c_i>0$, we know that $c'd=0$ only if $d_i=0$ for all $i\in N$. If this is the case, then we have 
+
+$$
+d_B=-\sum_{i\in N} B^{-1}A_id_i\\
+d_B=-\sum_{i\in N} B^{-1}A_i(0)\\
+d_B=0
+$$
+
+Thus $d=0$, and $y=x$. This means that for any $y\neq x$, $c'd>0$, meaning $c'y>c'x$ for any feasible $y$. Thus, by definition, $x$ is a unique optimal solution.
+
+\subsection{b}
+
+We know that $x$ is a unique optimal nondegenerate solution, and we must show that $\bar{c}>0$.
+
+Suppose that $x$ is uniquely optimal, nondegenerate basic feasible solution, and that $\bar{c}_j\leq 0$ for some index $j$.
+
+
+\end{document}
