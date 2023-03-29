@@ -53,9 +53,11 @@ If $c'y<c'x$, then $x$ is not optimal, and if $c'y=c'x$, then $x$ is optimal, bu
 Q.E.D.
 
 \section{Problem 3}
-\subsection{a}
 
-We know that $x^*$ is an optimal basic feasible solution with a corresponding optimal basis $B^*$. We also know that $I$ is empty, meaning \textbf{all nonbasic indices} have corresponding reduced costs that are nonzero. 
+We know that $x^*$ is an optimal basic feasible solution with a corresponding optimal basis $B^*$. 
+
+\subsection{a}
+We also know that $I$ is empty, meaning \textbf{all nonbasic indices} have corresponding reduced costs that are nonzero. 
 
 We must show that $x^*$ is the only optimal solution. We provide a proof by contradiction, showing that the existence of another distinct optimal solution $y^*$ violates the optimality of the basis $B^*$.
 
@@ -89,7 +91,7 @@ c'd=\sum_{i\in N}\bar{c_i}d_i=0
 \end{split}
 \end{equation}
 
-Thus we have $c'd=0=\sum_{i\in N}\bar{c}_id_i$. Since $B^*$ is an optimal basis, we know that $\bar{c}\geq 0$. Since $I$ is empty, $\bar{c}_i\neq 0$ for all $i\in N$. Therefore, for all $i\in N$, $\bar{c}_i>0$. 
+Thus we have $c'd=0=\sum_{i\in N}\bar{c}_id_i$. Since $B^*$ is an optimal basis, Definition 3.3 tells us that $\bar{c}\geq 0$. Since $I$ is empty, $\bar{c}_i\neq 0$ for all $i\in N$. Therefore, for all $i\in N$, $\bar{c}_i>0$. 
 
 However, we know that $d_j>0$. Thus, $\bar{c}_jd_j>0$, and we have
 
@@ -105,5 +107,89 @@ Since all $\bar{c}_i, d_i\geq0$, this summation cannot be negative, and we have 
 Q.E.D.
 
 \subsection{b}
+
+We prove both directions, referring to the "following linear programming problem" as $q$:
+
+\underline{$x^*$ is the unique optimal solution $\Rightarrow$ $q$ has an optimal value of zero}
+
+We first show that $x^*$ is a feasible solution to $q$ with cost $0$. Since $x^*$ is feasible, we satisfy $Ax=b$. By definition, $x^*_i=0$ for all $i\in N$, meaning we satisfy $x^*_i=0, i\in N\texttt{\textbackslash} I$. Since $x^*$ is feasible, we know that $x^*\geq 0$, meaning that we satisfy $x^*_i\geq 0$ for all $i\in B\cup I$. Finally, we note that since $I\subseteq N$, $x^*_i=0$ for all $i\in I$ and thus the cost of $x^*$ is 0. 
+
+We now show that $x^*$ is the only solution to $q$, as the existence of any other solution would violate the unique optimality of $x^*$.
+
+Consider any other solution $y$ to $q$. We know that $Ay=b$, and we also can combine the second and third constraints to show that $y\geq 0$; this means that $y$ is a feasible solution in our polyhedron.
+
+Consider $d=y-x^*$. We note that 
+
+$$
+c'd=\sum_{i\in N}\bar{c}_id_i=\sum_{i\in N\texttt{\textbackslash}I}\bar{c}_id_i+\sum_{i\in I}\bar{c}_id_i
+$$
+
+Since both $x^*$ and $y$ are feasible solutions to $q$, we know that $x^*_i=y_i=0$, meaning $d_i=0$ for all $i\in N\texttt{\textbackslash}I$. Thus we have 
+
+$$
+c'd=\sum_{i\in I}\bar{c}_id_i
+$$
+
+But, by the definition of $I$, $\bar{c}_i=0$ for all $i\in I$, leading to
+
+$$
+c'd = 0
+$$
+
+Therefore $c'y=c'(x^*+d)=c'x^*+0=c'x^*$, and $y$ is also an optimal solution in our minimization problem. Thus, we have reached a contradiction, and for $x^*$ to be uniquely optimal there can be no other solutions to $q$.
+
+Since $x^*$ is the only solution to $q$, the optimal cost of $q$ is its' optimal cost, i.e. 0.
+
+Q.E.D.
+
+\underline{$q$ has an optimal value of zero $\Rightarrow$ $x^*$ is the unique optimal solution }
+
+We provide a proof by contrapositive. Suppose that $x^*$ is optimal, but not uniquely so, and that there exists some distinct optimal solution $y$.
+
+Consider $d=y-x\neq 0$. Since $y$ and $x^*$ are feasible, 
+
+$$
+Ad=Ay-Ax=b-b=0
+$$
+
+We can rewrite this to yield the equation
+
+$$
+B^{*-1}d_B+\sum_{i\in N}A_id_i=0
+$$
+
+Which, rearranging to solve for $d_B$ yields
+
+$$
+d_B=-\sum_{i\in N}B^{*-1}A_id_i
+$$
+
+Considering this equation, it is clear that for $d\neq 0$ there must be some $j\in N$ such that $d_j\neq0$. Furthermore, $y$'s feasibility requires $y_j\geq 0$, and $x_j=0$, meaning $d_j>0$.
+
+Since $x^*$ and $y$ are both optimal, they share the same optimal cost, and $c'd=0$. We can rewrite this as
+
+$$
+0=\sum_{i\in N}\bar{c}_id_i
+$$
+
+Since $B^*$ is an optimal basis, by definition we have $\bar{c}_i\geq 0$ . Since $y$ is feasible and $x_i=0$ for all $i\in N$, $d_i\geq 0$ for all $i\in N$. Since all terms are non-negative, the above equality only holds if all terms $\bar{c}_id_i=0$ for all $i\in N$. If $d_j>0$, then $\bar{c}_j=0$, which means $j\in I$.
+
+We now consider $y$ in terms of the maximization problem $q$. Since $y$ is feasible in our minimization problem, we know that $Ay=b$ and $y_i\geq 0, i\in B\cup I$. Furthermore, since we know that $\bar{c}_id_i=0$ for all $i\in N$ and that $\bar{c}_i\neq 0$ for all $i\in N\texttt{\textbackslash}I$, $d_i=0$ for all $i\in N\texttt{\textbackslash}I$ and thus $y_i=d_i+x_i=0$ for all $i\in N\texttt{\textbackslash}I$. Thus $y$ is also a feasible solution to our maximization problem.
+
+We finally consider the cost of $y$, which is
+
+\begin{equation}
+\begin{split}
+\sum_{i\in I} y_i =\sum_{i\in I} x_i+d_i=\sum_{i\in I}d_i\\
+\sum_{i\in I} y_i = d_j +\sum_{i\in I|i\neq j}d_i\\
+\sum_{i\in I} y_i > 0
+\end{split}
+\end{equation}
+
+Thus, $y$ has positive cost, and the optimal cost for $q$ must also be positive.
+
+We have proven the contrapositive, and thus the original claim holds.
+
+Q.E.D.
 
 \end{document}
