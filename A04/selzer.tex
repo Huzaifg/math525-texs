@@ -4,7 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \begin{document}
-\section{1}
+\section{Problem 1}
 \subsection{a}
 We know that, for a basic feasible solution $x$ associated with basis matrix $B$, that $\bar{c}_i>0$, for all indices $i$ within the set of nonbasic indices $N$. We must show that $x$ is a unique optimal solution.
 
@@ -25,26 +25,85 @@ $$
 and
 
 $$
-c'd=c'_Bd_B + \sum_{i\in N}c_id_i=\sum_{i\in N}(c_i-c'BB^{-1}A_i)d_i=\sum_{i\in N}\bar{c_i}d_i
+c'd=c'_Bd_B + \sum_{i\in N}c_id_i=\sum_{i\in N}(c_i-c'_BB^{-1}A_i)d_i=\sum_{i\in N}\bar{c_i}d_i
 $$
 
 For all nonbasic indices $i\in N$, we have $x_i=0$, and since $y$ is a feasible solution, we have $y_i\geq 0$. Therefore $d_i\geq 0$. We also know that $c_i>0$ for all $i\in N$. Therefore $c'd\geq 0$. 
 
 Furthermore, since all $c_i>0$, we know that $c'd=0$ only if $d_i=0$ for all $i\in N$. If this is the case, then we have 
 
-$$
-d_B=-\sum_{i\in N} B^{-1}A_id_i\\
-d_B=-\sum_{i\in N} B^{-1}A_i(0)\\
+\begin{equation}
+\begin{split}
+d_B=-\sum_{i\in N} B^{-1}A_id_i \\
+d_B=-\sum_{i\in N} B^{-1}A_i(0) \\
 d_B=0
-$$
+\end{split}
+\end{equation}
 
 Thus $d=0$, and $y=x$. This means that for any $y\neq x$, $c'd>0$, meaning $c'y>c'x$ for any feasible $y$. Thus, by definition, $x$ is a unique optimal solution.
 
 \subsection{b}
 
-We know that $x$ is a unique optimal nondegenerate solution, and we must show that $\bar{c}>0$.
+We know that $x$ is a unique optimal nondegenerate solution, and we must show that the reduced cost of every nonbasic variable is positive. We provide a proof by contradiction.
 
-Suppose that $x$ is uniquely optimal, nondegenerate basic feasible solution, and that $\bar{c}_j\leq 0$ for some index $j$.
+Suppose that $x$ is a uniquely optimal, nondegenerate basic feasible solution, and that $\bar{c}_j\leq 0$ for some nonbasic variable $x_j$. Since $x$ is a nondegenerate basic feasible solution, the $j^{th}$ basic direction $d_j$ is a feasible direction and by definition there exists some feasible $y=x+\theta d_j$. Since the reduced cost $\bar{c}_j$ is non-positive, $c'y\leq c'x$.
 
+If $c'y<c'x$, then $x$ is not optimal, and if $c'y=c'x$, then $x$ is optimal, but not uniquely so. Either way, we have reached a contradiction, and the reduced cost of \textbf{all} nonbasic variables are positive. 
+
+Q.E.D.
+
+\section{Problem 3}
+\subsection{a}
+
+We know that $x^*$ is an optimal basic feasible solution with a corresponding optimal basis $B^*$. We also know that $I$ is empty, meaning \textbf{all nonbasic indices} have corresponding reduced costs that are nonzero. 
+
+We must show that $x^*$ is the only optimal solution. We provide a proof by contradiction, showing that the existence of another distinct optimal solution $y^*$ violates the optimality of the basis $B^*$.
+
+Suppose that, there is another optimal solution $y^*\neq x^*$. Consider the feasible direction $d=y-x\neq0$. It follows that
+
+$$
+c'd=c'y-c'x=0
+$$
+
+Since $y^*$ is feasible, we know that
+
+$$
+y^*_N = x^*_N+d_N\geq 0
+$$
+
+But since x is a basic feasible solution $x_N^*=0$ and
+
+$$
+d_i\geq 0
+$$
+
+Furthermore, since $y^*$ and $x^*$ are both feasible, the equality conditions require $Ad=0$. Since $Ad=Bd_B+\sum_{i\in N}A_id_i$=0, we can see that if $d_i=0$ for all $i$, then $d=0$. This would be a contradiction, so there must exist some $j\in N$ such that $d_j>0$. 
+
+We then rewrite $c'd$:
+
+\begin{equation}
+\begin{split}
+c'd=c'_Bd_B + \sum_{i\in N}c_id_i\\
+c'd=\sum_{i\in N}(c_i-c'_BB^{-1}A_i)d_i\\
+c'd=\sum_{i\in N}\bar{c_i}d_i=0
+\end{split}
+\end{equation}
+
+Thus we have $c'd=0=\sum_{i\in N}\bar{c}_id_i$. Since $B^*$ is an optimal basis, we know that $\bar{c}\geq 0$. Since $I$ is empty, $\bar{c}_i\neq 0$ for all $i\in N$. Therefore, for all $i\in N$, $\bar{c}_i>0$. 
+
+However, we know that $d_j>0$. Thus, $\bar{c}_jd_j>0$, and we have
+
+\begin{equation}
+\begin{split}
+-\bar{c}_jd_j=\sum_{i\in N|i\neq j}\bar{c}_id_i\\
+0>\sum_{i\in N|i\neq j}\bar{c}_id_i
+\end{split}
+\end{equation}
+
+Since all $\bar{c}_i, d_i\geq0$, this summation cannot be negative, and we have reached our contradiction. Thus, if all of the problem constraints hold, $x^*$ must be the only optimal solution.
+
+Q.E.D.
+
+\subsection{b}
 
 \end{document}
