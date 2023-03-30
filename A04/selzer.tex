@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
+\pagestyle{empty}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -191,5 +192,34 @@ Thus, $y$ has positive cost, and the optimal cost for $q$ must also be positive.
 We have proven the contrapositive, and thus the original claim holds.
 
 Q.E.D.
+
+\section{Problem 4}
+\subsection{a}
+
+We can easily convert this problem into standard form by adding slack variables to the two non-negativity constraints of the problem:
+
+$$
+\begin{array}{ll}
+\text{minimize}  & -2x_1-x_2\\
+\text{subject to}& x_1-x_2+x_3=2\\
+                 & x_1+x_2+x_4=6\\
+                 & x_1, x_2, x_3, x_4\geq 0\\
+\end{array}
+$$
+
+To construct a basic feasible solution $x$, we choose the linearly independent columns $A_3=\begin{bmatrix}1\\0\end{bmatrix}$ and $A_4=\begin{bmatrix}0\\1\end{bmatrix}$, with $B=\begin{bmatrix}A_3 & A_4\end{bmatrix}$. Thus we have $x_1=x_2=0$, and solve the remaining system of equations
+
+$$
+\begin{array}{c}
+x_3=2\\
+x_4=6\\
+\end{array}
+$$
+
+to determine that $x_3=2, x_4=6$. Thus we have the initial basic feasible solution
+
+$$
+x=(0,0,2,6)
+$$
 
 \end{document}
