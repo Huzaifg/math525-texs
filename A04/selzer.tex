@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \pagestyle{empty}
+\usepackage{graphicx} % For including images
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -221,5 +222,84 @@ to determine that $x_3=2, x_4=6$. Thus we have the initial basic feasible soluti
 $$
 x=(0,0,2,6)
 $$
+
+\subsection{b}
+
+We start by constructing the initial tableau:
+
+$$
+\begin{array}{c}
+\\
+ \\
+x_3 \\
+x_4 \\ 
+\end{array}
+\begin{array}{|c|cccc|c}
+    & x_1 & x_2 & x_3 & x_4 &  \\ \hline
+  0 & -2 & -1 & 0 & 0 & \\ \hline
+  2 & 1 & -1 & 1 & 0 & \\
+  6 & 1 & 1 & 0 & 1 & \\\hline
+\end{array}
+$$
+
+Since $\bar{c}_1\leq 0$, we let $x_1$ enter the basis. The pivot column is $u=\begin{pmatrix}1 & 1\end{pmatrix}$, and we compute $\theta_i$, for $i=3,4$:
+
+\begin{itemize}
+\item $\theta_3=\frac{2}{1}=2$
+\item $\theta_4=\frac{6}{1}=6$
+\end{itemize}
+
+We have $\theta^*=\text{min }\{\theta_3, \theta_4\}=2$, and we have $i=3, l=1$, and the first basic variable $x_3$ exits the basis. The new basis will be $\bar{B}(1)=1, \bar{B}(2)=4$.
+
+After performing the row operations (described to the right), we obtain the following new tableau
+
+$$
+\begin{array}{c}
+\\
+ \\
+x_1 \\
+x_4 \\ 
+\end{array}
+\begin{array}{|c|cccc|l}
+    & x_1 & x_2 & x_3 & x_4 & \\ \hline
+  4 & 0 & -3 & 2 & 0 & R_0=R_0+2R_1 \\  \hline
+  2 & 1 & -1 & 1 & 0 & R1=R1\\
+  4 & 0 & 2 & -1 & 1 & R2 = R2 - R1\\\hline
+\end{array}
+$$
+
+The corresponding basic feasible solution is $x=\begin{pmatrix}2 & 0 & 0 & 4\end{pmatrix}$
+
+Now, we have $\bar{c}_2=-3$, so we let $x_2$ enter the basis. The pivot column is $u=\begin{pmatrix}-1 & 2\end{pmatrix}$, and we select $i=4,l=2$ since it is the only nonzero element. $x_4$ exits the basis, and the new basis will be $\bar{B}(1)=1, \bar{B}(2)=2$.
+
+After performing the row operations (described to the right), we obtain the following new tableau
+
+$$
+\begin{array}{c}
+\\
+ \\
+x_1 \\
+x_4 \\ 
+\end{array}
+\begin{array}{|c|cccc|l}
+    & x_1 & x_2 & x_3 & x_4 & \\ \hline
+  10& 0 & 0 & 0.5 & 0.75 & R_0=R_0+\frac{3R_2}{2} \\  \hline
+  4 & 1 & 0 & 0.5 & 0.5 & R1=R1+\frac{R2}{2}\\
+  2 & 0 & 1 & -0.5 & 0.5 & R2 = \frac{R2}{2}\\\hline
+\end{array}
+$$
+
+The corresponding basic feasible solution is $x=\begin{pmatrix}4 & 2 & 0 & 0\end{pmatrix}$
+
+
+At this point, all reduced costs are non-negative and the algorithm terminates. Our optimal basic feasible solution is $x=\begin{pmatrix}4 & 2 & 0 & 0\end{pmatrix}$.
+
+\subsection{c}
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{4c}
+\centering
+\caption{The geometry of the minimization problem (red) and the path taken by the simplex algorithm (blue)}
+\end{figure}
 
 \end{document}

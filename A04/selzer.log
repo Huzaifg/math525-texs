@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  29 MAR 2023 23:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.4)  30 MAR 2023 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -28,6 +28,32 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 )
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+\stockwidth=\dimen139
+\stockheight=\dimen140
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+)
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip49
@@ -38,12 +64,12 @@ Package: amstext 2021/08/26 v2.01 AMS text
 
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks18
-\ex@=\dimen139
+\@emptytoks=\toks19
+\ex@=\dimen143
 ))
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
+\pmbraise@=\dimen144
 )
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
@@ -65,7 +91,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen141
+\big@size=\dimen145
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count198
@@ -78,21 +104,21 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \dotsspace@=\muskip16
 \c@parentequation=\count266
 \dspbrk@lvl=\count267
-\tag@help=\toks19
+\tag@help=\toks20
 \row@=\count268
 \column@=\count269
 \maxfields@=\count270
-\andhelp@=\toks20
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
-\@envbody=\toks21
+\andhelp@=\toks21
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks22
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
@@ -115,27 +141,50 @@ File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 ) (selzer.aux)
 \openout1 = `selzer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count272
+\scratchdimen=\dimen152
+\scratchbox=\box54
+\nofMPsegments=\count273
+\nofMParguments=\count274
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count275
+\MPscratchDim=\dimen153
+\MPnumerator=\count276
+\makeMPintoPDFobject=\count277
+\everyMPtoPDFconversion=\toks25
+)
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.
+sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
 
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
 
 
 (C:\Users\G\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -144,40 +193,52 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/G/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-116.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 116.
+117.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 117.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 116.
+(Font)              for symbol `textbackslash' on input line 117.
 
-[3] [4] [5] (selzer.aux)
+[3] [4] [5]
+<4c.png, id=26, 157.33781pt x 153.57375pt>
+File: 4c.png Graphic file (type png)
+<use 4c.png>
+Package pdftex.def Info: 4c.png  used on input line 300.
+(pdftex.def)             Requested size: 180.0pt x 175.70389pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7 <./4c.png>] (selzer.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1757 strings out of 475385
- 25851 string characters out of 2778796
- 371934 words of memory out of 3000000
- 23168 multiletter control sequences out of 15000+600000
- 475929 words of font info for 54 fonts, out of 8000000 for 9000
+ 2613 strings out of 475385
+ 39217 string characters out of 2778796
+ 393151 words of memory out of 3000000
+ 23988 multiletter control sequences out of 15000+600000
+ 476270 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,16n,62p,523b,171s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on selzer.pdf (5 pages, 119391 bytes).
+ 55i,16n,62p,523b,229s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\G\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095
+.pk><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmex10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/G/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on selzer.pdf (7 pages, 140929 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
