@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{float}
 \begin{document}
 \section{Problem 1}
 \subsection{a}
@@ -296,14 +297,19 @@ At this point, all reduced costs are non-negative and the algorithm terminates. 
 
 \subsection{c}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=0.5\textwidth]{4c}
 \centering
 \caption{The geometry of the minimization problem (red) and the path taken by the simplex algorithm (blue)}
 \end{figure}
 
+
+
+
 We can see the path taken in the algorithm above in Figure 1.
 
+\section*{Problem 5}
+\input{q5.tex}
 \section{Problem 6}
 
 Consider the basic feasible solution $y$. Since it is a basic feasible solution, it is also a vertex, and there exists some cost function $c$ which is uniquely minimized at $y$.

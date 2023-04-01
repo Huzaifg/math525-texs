@@ -1,0 +1,33 @@
+The tableau is currently, 
+
+
+$$
+\begin{array}{c}
+\\
+ \\
+x_3 \\
+x_4 \\ 
+x_5 \\
+\end{array}
+\begin{array}{|c|ccccc|}
+    \hline
+    & x_1 & x_2 & x_3 & x_4 & x_5\\ \hline
+  -10 & \delta & -2 & 0 & 0 & 0\\ \hline
+  4 & -1 & \eta & 1 & 0 & 0\\
+  1 & \alpha & -4 & 0 & 1 & 0\\
+  \beta & \gamma & 3 & 0 & 0 & 1\\\hline
+\end{array}
+$$
+
+\subsection*{a}
+The question asks for values of the unknowns to be such that the current solution is optimal and there are multiple optimal solutions. \\
+
+We can see that $\bar{c}_2$ is negative. Therefore, for the current basic feasible solution to be optimal, we need a degenerate basic feasible solution (Theorem 3.1). Thus, we set $\beta$ to $0$. We also need to transform the tableau such that we have a new bases (and thus multiple bases) and end up with the same basic feasible solution. Thus, we should have $\theta^*$ to be $0$. For this we require $\eta$ to be $\le 0$ so that the pivot row is $3$ (costs row is row 0). We also want the pivot column to be column $2$ as for the algorithm to terminate, we need all the reduced costs to be non-negative. Thus we choose $\delta = 0$. Additionally, during transformations, we want the $\delta$ to stay at 0 or become positive. We thus choose $\gamma = 0$. This leaves us with $\alpha$ which can be anything. Thus with the choices $\boldsymbol{\beta = 0,\: \delta = 0.\: \gamma = 0,\: \text{and}\: \eta \le 0}$, we let $x_2$ enter the basis and obtain $\theta^* = \dfrac{\beta}{3} = 0$ and we stay at the same basic feasible solution but with a different basis. Also, we make $\bar{c}_2$ as 0 and the algorithm terminates as all $\bar{c}_j$ are non-negative. 
+
+
+
+\subsection*{b}
+The optimal cost is $- \infty$ if we choose a $j$ for which $\bar{c}_j < 0$ and all of the $u$'s in column $j$ are positive. Based on the available unknowns, we can only make column $1$ such that all the $u$'s are positive. We thus choose $\boldsymbol{\delta < 0}$ and ensure that we choose the minimum index pivoting rule. Then we set $\boldsymbol{\alpha \le 0 \text{ and } \gamma \le 0}$. Then, when we attempt to bring $x_1$ into the basis, we see that the optimal cost is $- \infty$.
+
+\subsection*{c}
+The current solution is not optimal if it is non degenerate since we have a $\bar{c}_j < 0$. Thus by setting $\boldsymbol{\beta > 0}$, we obtain a feasible but not optimal solution.
