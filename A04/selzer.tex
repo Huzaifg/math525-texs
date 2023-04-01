@@ -302,4 +302,24 @@ At this point, all reduced costs are non-negative and the algorithm terminates. 
 \caption{The geometry of the minimization problem (red) and the path taken by the simplex algorithm (blue)}
 \end{figure}
 
+We can see the path taken in the algorithm above in Figure 1.
+
+\section{Problem 6}
+
+Consider the basic feasible solution $y$. Since it is a basic feasible solution, it is also a vertex, and there exists some cost function $c$ which is uniquely minimized at $y$.
+
+We consider the linear programming problem of minimizing $c$ over the polyhedron $P$ (containing the basic feasible solutions $x$ and $y$), starting from the basic feasible solution $x$, and the intuition behind the simplex method can deliver us from $x$ to $y$ in a finite number of iterations.
+
+Suppose that any iteration, we are at basic feasible solution $z\neq y$ (to start, suppose $z=x$). Consider $d=y-z$, and the the difference in cost $c'd$. Since $c'y<c'z$, $c'd<0$. Since we are at a basic feasible solution, if we define $N_z$ as the set of nonbasic indices at $z$, we have 
+
+$$
+c'd=\sum_{i\in N_z}\bar{c}_id_i<0
+$$
+
+For the summation to be negative, there must exist some index $j\in N_z$ such that $\bar{c}_jd_j<0$. Since $j\in N_z$, $z_j=0$, for $y$ to be feasible we must have $d_j>0$, meaning $\bar{c}_j<0$. There may be many different values of $j$ yielding $\bar{c}_j<0$, however there must exist one such that $d_j$ is a feasible direction at $z$ (if there wasn't, then the simplex algorithm would tell us that $z$ is optimal, which it is not because we know $z\neq y$. Therefore, by traveling along $d_j$, we will decrease the cost until we violate another constraint (which we must do, as otherwise the optimal cost would   approach $-\infty$, which is impossible as the optimal cost is $c'y$). Theorem 3.2 tells us that when we hit that new constraint, we have reached a new basic feasible solution $\bar{z}$ \textbf{that is adjacent to} $z$. If $\bar{z}=y$, we have finished; otherwise, we iterate again from $\bar{z}$.
+
+We have thus shown that each iteration strictly decreases our cost. To complete this proof, we argue that we will reach $y$ within a finite number of iterations. We note that there are a finite number of basic feasible solutions, since any polyhedron must have a finite number of constraints. Since every iteration produces a basic feasible solution whose cost is less than the one before, we cannot visit a basic feasible solution more than once during our iteration. Since there are a finite number of basic feasible solutions, we must terminate before we have exhausted all of the basic feasible solutions, and we will eventually reach $y$.
+
+We have shown that we 
+
 \end{document}
