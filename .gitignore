@@ -1,0 +1,9 @@
+# TeX intermediates
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.fls
+*.out
+*.toc
+*.fdb_latexmk
