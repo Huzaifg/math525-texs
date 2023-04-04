@@ -46,7 +46,7 @@ $$
 
 The cost still remains at $-10$ and all the $c_j$'s are positive. Thus, $x = (0,0,4,1,0)$ is optimal. However this is the same point as we had before the pivot, so we have not yet proved that there are "multiple" optimal solutions. \\
 
-Now, we only have 1 option to pivot which is to pivot $x_1$ and bring it to the basis. We can only choose the 2$^{nd}$ row as the pivot row as it is the only positive $u_j$. Thus, $x_1$ enters the basis with $\theta^* = 1$ and $x_4$ exits the basis. We then get the following tableau
+Since $x_1$ is a nonbasic variable, however, we will now pivot $x_1$ and bring it to the basis. We can only choose the 2$^{nd}$ row as the pivot row as it is the only positive $u_j$. Thus, $x_1$ enters the basis with $\theta^* = 1$ and $x_4$ exits the basis. We then get the following tableau
 
 $$
 \arraycolsep=1.4pt\def\arraystretch{2.2}
@@ -68,7 +68,7 @@ x_2 \\
 \end{array}
 $$
 
-The cost still remains at $-10$ and all the $c_j$'s are positive. Thus the basic feasible solution,$x = (1,1,7,0,0)$ which is non-degenerate, is optimal. Thus we have multiple optimal basic feasible solutions for this choice of unknown parameters.
+The cost still remains at $-10$ and all the $c_j$'s are positive. Thus the basic feasible solution,$x = (1,1,7,0,0)$ is of the same cost, making it optimal as well. Thus we have multiple optimal basic feasible solutions for this choice of unknown parameters.
 
 
 
