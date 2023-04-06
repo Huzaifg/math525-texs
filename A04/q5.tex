@@ -73,7 +73,7 @@ The cost still remains at $-10$ and all the $c_j$'s are positive. Thus the basic
 
 
 \subsection*{b}
-The optimal cost is $- \infty$ if we choose a $j$ for which $\bar{c}_j < 0$ and all of the $u$'s in column $j$ are positive. Based on the available unknowns, we can only make column $1$ such that all the $u$'s are positive. We thus choose $\boldsymbol{\delta < 0}$ (say $-2$) and ensure that we choose the minimum index pivoting rule. Then we set $\boldsymbol{\alpha \le 0 \text{ and } \gamma \le 0}$ (say $\alpha = -2$ and $\gamma = -2$). We also set $\beta > 0 $ (say 2) to ensure the solution is feasible and choose a random value of 2 for $\eta$. The tableau is thus, 
+The optimal cost is $- \infty$ if we choose a $j$ for which $\bar{c}_j < 0$ and all of the $u$'s in column $j$ are positive. Based on the available unknowns, we can only make column $1$ such that all the $u$'s are positive. We thus choose $\boldsymbol{\delta < 0}$ (say $-2$) and ensure that we choose the minimum index pivoting rule. Then we set $\boldsymbol{\alpha \le 0 \text{ and } \gamma \le 0}$ (say $\alpha = -2$ and $\gamma = -2$). We also set $\beta > 0 $ (say 2) to ensure the solution is feasible. Choosing $\eta$ is important because if we end up pivoting with column 2, we should choose an $\eta$ that gives us negative $u$'s for all the negative reduced costs. Choosing $\eta$ as 8 satisfies this requirement. Consider starting with the tableau, 
 
 $$
 \begin{array}{c}
@@ -87,12 +87,31 @@ x_5 \\
     \hline
     & x_1 & x_2 & x_3 & x_4 & x_5\\ \hline
   -10 & -2 & -2 & 0 & 0 & 0\\ \hline
-  4 & -1 & 2 & 1 & 0 & 0\\
+  4 & -1 & 8 & 1 & 0 & 0\\
   1 & -2 & -4 & 0 & 1 & 0\\
   2 & -2 & 3 & 0 & 0 & 1\\\hline
 \end{array}
 $$
-Then, when we attempt to bring $x_1$ into the basis, we see that the optimal cost is $- \infty$ as all the $d$'s are negative.
+Then, when we attempt to bring $x_1$ into the basis, we see that the optimal cost is $- \infty$ as all the $d$'s are negative. If we attempt to bring $x_2$ to the basis, we get the following tableau,
+
+$$
+\begin{array}{c}
+\\
+ \\
+x_2 \\
+x_4 \\ 
+x_5 \\
+\end{array}
+\begin{array}{|c|ccccc|}
+    \hline
+    & x_1 & x_2 & x_3 & x_4 & x_5\\ \hline
+  -9 & -2.5 & 0 & 0.25 & 0 & 0\\ \hline
+  0.5 & -0.125 & 1 & 0.125& 0 & 0\\
+  3 & -2.5 & 0 & 0.5 & 1 & 0\\
+  0.5 & -2.375 & 0 & -0.375 & 0 & 1\\\hline
+\end{array}
+$$
+Now, when we try to bring $x_1$ into the basis, we see that all the $u$'s are negative, and thus the optimal cost is $- \infty$.
 
 \subsection*{c}
 The current solution is not optimal if it is non-degenerate since we have a $\bar{c}_j < 0$. Thus by setting $\boldsymbol{\beta > 0}$ (say 2), we obtain a feasible but not optimal solution. We can choose any random values for the other unknowns. Thus we use the below tableau,
