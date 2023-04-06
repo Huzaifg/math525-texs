@@ -1,12 +1,44 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \pagestyle{empty}
+\usepackage{amsfonts,amsmath,amssymb,amsthm} % Math packages
 \usepackage{graphicx} % For including images
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage{titlesec} % For customizing section titles
+\usepackage{titling} % For customizing the title
+\usepackage{geometry} % For adjusting page margins
+\usepackage{datetime} % For formatting the date
+\usepackage{hyperref} % For adding hyperlinks
 \usepackage{float}
+
+% Customize the title format
+\pretitle{\begin{center}\Large\bfseries}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\large}
+\postauthor{\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+% Customize the section title format
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+
+% Adjust the page margins
+\geometry{margin=1in}
+
 \begin{document}
+
+% Create the title page
+\begin{titlepage}
+    \centering
+    \vspace*{0.5cm}
+    \par\normalfont\fontsize{35}{35}\sffamily\selectfont
+    Assignment 04 - MATH 525\par 
+    \vspace*{1cm}
+    {\huge\bfseries Huzaifa Unjhawala \\  Gabe Selzer \par} 
+    \vspace*{1cm}
+    {\Large\itshape Date: \today\par} 
+    \vfill
+\end{titlepage}
+
 \section{Problem 1}
 \subsection{a}
 We know that, for a basic feasible solution $x$ associated with basis matrix $B$, that $\bar{c}_i>0$, for all indices $i$ within the set of nonbasic indices $N$. We must show that $x$ is a unique optimal solution.
