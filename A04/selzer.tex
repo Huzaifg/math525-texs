@@ -43,7 +43,7 @@
 \subsection{a}
 We know that, for a basic feasible solution $x$ associated with basis matrix $B$, that $\bar{c}_i>0$, for all indices $i$ within the set of nonbasic indices $N$. We must show that $x$ is a unique optimal solution.
 
-Consider any arbitrary feasible solution $y$, and the vector $y-x$. Since both $x$ and $y$ are feasible, we have $Ax=Ay=b$, meaning that $Ad=Ax-Ay=b-b=0$.
+Consider any arbitrary feasible solution $y$, and the vector $d=y-x$. Since both $x$ and $y$ are feasible, we have $Ax=Ay=b$, meaning that $Ad=Ax-Ay=b-b=0$.
 
 $Ad$ is equivalent to the form
 
@@ -63,9 +63,9 @@ $$
 c'd=c'_Bd_B + \sum_{i\in N}c_id_i=\sum_{i\in N}(c_i-c'_BB^{-1}A_i)d_i=\sum_{i\in N}\bar{c_i}d_i
 $$
 
-For all nonbasic indices $i\in N$, we have $x_i=0$, and since $y$ is a feasible solution, we have $y_i\geq 0$. Therefore $d_i\geq 0$. We also know that $c_i>0$ for all $i\in N$. Therefore $c'd\geq 0$. 
+For all nonbasic indices $i\in N$, we have $x_i=0$, and since $y$ is a feasible solution, we have $y_i\geq 0$. Therefore $d_i\geq 0$. We also know that $\bar{c}_i>0$ for all $i\in N$. Therefore $c'd\geq 0$. 
 
-Furthermore, since all $c_i>0$, we know that $c'd=0$ only if $d_i=0$ for all $i\in N$. If this is the case, then we have 
+Furthermore, since all $\bar{c}_i>0$, we know that $c'd=0$ only if $d_i=0$ for all $i\in N$. If this is the case, then we have 
 
 \begin{equation}
 \begin{split}
@@ -81,7 +81,7 @@ Thus $d=0$, and $y=x$. This means that for any $y\neq x$, $c'd>0$, meaning $c'y>
 
 We know that $x$ is a unique optimal nondegenerate solution, and we must show that the reduced cost of every nonbasic variable is positive. We provide a proof by contradiction.
 
-Suppose that $x$ is a uniquely optimal, nondegenerate basic feasible solution, and that $\bar{c}_j\leq 0$ for some nonbasic variable $x_j$. Since $x$ is a nondegenerate basic feasible solution, the $j^{th}$ basic direction $d_j$ is a feasible direction and by definition there exists some feasible $y=x+\theta d_j$. Since the reduced cost $\bar{c}_j$ is non-positive, $c'y\leq c'x$.
+Suppose that $x$ is a uniquely optimal, nondegenerate basic feasible solution, and that $\bar{c}_j\leq 0$ for some nonbasic variable $x_j$. Since $x$ is a nondegenerate basic feasible solution, the $j^{th}$ basic direction $d_j$ is a feasible direction and by definition there exists some feasible $y=x+\theta d_j$ for some $\theta > 0$. Since the reduced cost $\bar{c}_j$ is non-positive, $c'y\leq c'x$.
 
 If $c'y<c'x$, then $x$ is not optimal, and if $c'y=c'x$, then $x$ is optimal, but not uniquely so. Either way, we have reached a contradiction, and the reduced cost of \textbf{all} nonbasic variables are positive. 
 
@@ -96,10 +96,10 @@ We also know that $I$ is empty, meaning \textbf{all nonbasic indices} have corre
 
 We must show that $x^*$ is the only optimal solution. We provide a proof by contradiction, showing that the existence of another distinct optimal solution $y^*$ violates the optimality of the basis $B^*$.
 
-Suppose that, there is another optimal solution $y^*\neq x^*$. Consider the feasible direction $d=y-x\neq0$. It follows that
+Suppose that, there is another optimal solution $y^*\neq x^*$. Consider the feasible direction $d=y^*-x^*\neq0$. It follows that
 
 $$
-c'd=c'y-c'x=0
+c'd=c'y^*-c'x^*=0
 $$
 
 Since $y^*$ is feasible, we know that
@@ -114,7 +114,7 @@ $$
 d_i\geq 0
 $$
 
-Furthermore, since $y^*$ and $x^*$ are both feasible, the equality conditions require $Ad=0$. Since $Ad=Bd_B+\sum_{i\in N}A_id_i$=0, we can see that if $d_i=0$ for all $i$, then $d=0$. This would be a contradiction, so there must exist some $j\in N$ such that $d_j>0$. 
+Furthermore, since $y^*$ and $x^*$ are both feasible, the equality conditions require $Ad=0$. Since $Ad=Bd_B+\sum_{i\in N}A_id_i$=0, we can see that if $d_i=0$ for all $i$, then $d=0$ and $y^*=x^*$. This would be a contradiction, so there must exist some $j\in N$ such that $d_j>0$. 
 
 We then rewrite $c'd$:
 
@@ -151,7 +151,7 @@ We first show that $x^*$ is a feasible solution to $q$ with cost $0$. Since $x^*
 
 We now show that $x^*$ is the only solution to $q$, as the existence of any other solution would violate the unique optimality of $x^*$.
 
-Consider any other solution $y$ to $q$. We know that $Ay=b$, and we also can combine the second and third constraints to show that $y\geq 0$; this means that $y$ is a feasible solution in our polyhedron.
+Consider any other solution $y$ to $q$. We know that $Ay=b$, and we also can combine the second and third constraints of $q$ to show that $y\geq 0$; this means that $y$ is a feasible solution in our polyhedron.
 
 Consider $d=y-x^*$. We note that 
 
