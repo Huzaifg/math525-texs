@@ -39,8 +39,8 @@
     \vfill
 \end{titlepage}
 
-\section{Problem 1}
-\subsection{a}
+\section*{Problem 1}
+\subsection*{a}
 We know that, for a basic feasible solution $x$ associated with basis matrix $B$, that $\bar{c}_i>0$, for all indices $i$ within the set of nonbasic indices $N$. We must show that $x$ is a unique optimal solution.
 
 Consider any arbitrary feasible solution $y$, and the vector $d=y-x$. Since both $x$ and $y$ are feasible, we have $Ax=Ay=b$, meaning that $Ad=Ax-Ay=b-b=0$.
@@ -77,7 +77,7 @@ d_B=0
 
 Thus $d=0$, and $y=x$. This means that for any $y\neq x$, $c'd>0$, meaning $c'y>c'x$ for any feasible $y$. Thus, by definition, $x$ is a unique optimal solution.
 
-\subsection{b}
+\subsection*{b}
 
 We know that $x$ is a unique optimal nondegenerate solution, and we must show that the reduced cost of every nonbasic variable is positive. We provide a proof by contradiction.
 
@@ -87,11 +87,11 @@ If $c'y<c'x$, then $x$ is not optimal, and if $c'y=c'x$, then $x$ is optimal, bu
 
 Q.E.D.
 
-\section{Problem 3}
+\section*{Problem 3}
 
 We know that $x^*$ is an optimal basic feasible solution with a corresponding optimal basis $B^*$. 
 
-\subsection{a}
+\subsection*{a}
 We also know that $I$ is empty, meaning \textbf{all nonbasic indices} have corresponding reduced costs that are nonzero. 
 
 We must show that $x^*$ is the only optimal solution. We provide a proof by contradiction, showing that the existence of another distinct optimal solution $y^*$ violates the optimality of the basis $B^*$.
@@ -141,7 +141,7 @@ Since all $\bar{c}_i, d_i\geq0$, this summation cannot be negative, and we have 
 
 Q.E.D.
 
-\subsection{b}
+\subsection*{b}
 
 We prove both directions, referring to the "following linear programming problem" as $q$:
 
@@ -227,8 +227,8 @@ We have proven the contrapositive, and thus the original claim holds.
 
 Q.E.D.
 
-\section{Problem 4}
-\subsection{a}
+\section*{Problem 4}
+\subsection*{a}
 
 We can easily convert this problem into standard form by adding slack variables to the two non-negativity constraints of the problem:
 
@@ -256,7 +256,7 @@ $$
 x=(0,0,2,6)
 $$
 
-\subsection{b}
+\subsection*{b}
 
 We start by constructing the initial tableau:
 
@@ -327,7 +327,7 @@ The corresponding basic feasible solution is $x=\begin{pmatrix}4 & 2 & 0 & 0\end
 
 At this point, all reduced costs are non-negative and the algorithm terminates. Our optimal basic feasible solution is $x=\begin{pmatrix}4 & 2 & 0 & 0\end{pmatrix}$.
 
-\subsection{c}
+\subsection*{c}
 
 \begin{figure}[H]
 \includegraphics[width=0.5\textwidth]{4c}
@@ -342,7 +342,7 @@ We can see the path taken in the algorithm above in Figure 1.
 
 \section*{Problem 5}
 \input{q5.tex}
-\section{Problem 6}
+\section*{Problem 6}
 
 Consider the basic feasible solution $y$. Since it is a basic feasible solution, it is also a vertex, and there exists some cost function $c$ which is uniquely minimized at $y$.
 
