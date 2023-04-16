@@ -1,0 +1,13 @@
+\textit{Note : This is Question 5 in the assignment sheet}
+
+The question asks to show that, in phase 1, if an artificial variable becomes nonbasic, it \textit{\textbf{need not}} ever become basic again. This is important as this means that if \textit{\textbf{could}} become basic again, as we saw in Example 3.8 from the slides, but it does not have to for the working of the algorithm. Thus the question can be thought of in a crude way as follows : \\
+\textit{If we remove the column of an artificial variable once it becomes nonbasic, will it cause the simplex method to terminate incorrectly?} \\
+We argue that this is not the case because:
+
+\begin{enumerate}
+    \item Since we start with all the artificial variables having values $>$ 0, and the cost vector is $(1,1,....)$, making one of them 0 will strictly improve the current cost. When an artificial variable becomes 0, it leaves the basis. 
+    \item Now, once it has left the basis, there are 2 options, there are still positive artificial variables or all the artificial variables are 0. For the latter case, phase 1 terminates.
+    \item For the former case, if there are still positive artificial variables, taking them out of the basis will again strictly improve the current cost. Thus, we \textit{need not} keep the artificial variables around once they have become 0.
+\end{enumerate}
+
+Again, its important to note that this might not be the most efficient way. For example, it is possible that bringing a zero-ed out artificial variable back to the basis might help go in a direction of larger reduced cost, but this is not a \textit{need}.

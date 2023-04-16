@@ -1,0 +1,109 @@
+We have the LP:
+\begin{align}
+    \text{minimize } &2x_1 + 3x_2 + 3x_3 + x_4 - 2x_5 \notag\\
+    \text{subject to } &x_1 + 3x_2 + 4x_4 + x_5 = 2 \notag\\
+                    &x_1 + 2x_2 - 3x_4 + x_5 = 2 \notag\\
+                    -&x_1 -4x_2 + 3x_3 = 1 \notag\\
+                    &x_1,x_2,x_3,x_4,x_5 \ge 0 \notag
+\end{align}
+We add slack variables and modify the above LP to:
+\begin{align}
+    \text{minimize } &x_6 + x_7 + x_8 \notag\\
+    \text{subject to } &x_1 + 3x_2 + 4x_4 + x_5 + x_6 = 2 \notag\\
+                    &x_1 + 2x_2 - 3x_4 + x_5 + x_7 = 2 \notag\\
+                    -&x_1 -4x_2 + 3x_3 + x_8 = 1 \notag\\
+                    &x_1,x_2,x_3,x_4,x_5,x_6,x_7,x_8 \ge 0 \notag
+\end{align}
+
+We thus get an initial basic feasible solution as:
+\[x = (0,0,0,0,0,2,2,1)\]
+$x_6$, $x_7$ and $x_8$ are thus basic varibles and the basis matrix $B$ is thus identity $I$. \\
+The current cost with our choice of basic feasible solution is 5.\\
+The vector of reduced costs $\bar{c}$ is evaluated as:
+
+\begin{align}
+    \bar{c} = c' - c'_B B^{-1}[A | I] &= [0'|1'] - 1'I[A|I'] \notag \\
+    &= [-1'A|0] \notag 
+\end{align}
+
+With this, we can create the initial tableau for phase 1 of the simplex method
+
+$$
+\begin{array}{c}
+\\
+\\
+x_4\\
+x_7 \\
+x_8 \\ 
+\end{array}
+\begin{array}{|c|cccccccc|l}
+     & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8  \\ \hline
+  -5 & -1 & -1 & -3 & -1 & -2 & 0 & 0 & 0 \\  \hline
+   2 & 1 & 3 & 0 & 4 & 1 & 1 & 0 & 0 \\
+   2 & 1 & 2 & 0 & -3 & 1 & 0 & 1 & 0 \\
+   1 & -1 & -4 & 3 & 0 & 0 & 0 & 0 & 1\\ \hline
+\end{array}
+$$
+We choose the largest negative reduced cost and let $x_3$ enter the basis. Column 4 only has one positive number which corresponds to row 4. Thus, $x_8$ exits the basis.
+
+$$
+\begin{array}{c}
+\\
+\\
+x_6\\
+x_7 \\
+x_3 \\ 
+\end{array}
+\begin{array}{|c|cccccccc|l}
+     & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8  \\ \hline
+  -4 & -2 & -5 & 0 & -1 & -2 & 0 & 0 & 1 & R_0 = R_0 + R_3\\ \hline
+   2 & 1 & 3 & 0  & 4  & 1 & 1 & 0 & 0 & R_1 = R_1\\
+   2 & 1 & 2 & 0 & -3 & 1 & 0 & 1 & 0 & R_2 = R_2 + R_2\\
+   1/3 & -1/3 & -4/3 & 1 & 0 & 0 & 0 & 0 & 1/3 & R_3 = R_3/3  \\ \hline
+\end{array}
+$$
+Using the same pivoting rules, we let $x_2$ enter the basis. Then using the smallest ratio test, $x_6$ exits the basis. We get the following tableau 
+
+$$
+\begin{array}{c}
+\\
+\\
+x_2\\
+x_7 \\
+x_3 \\ 
+\end{array}
+\begin{array}{|c|cccccccc|l}
+     & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8  \\ \hline
+  -2/3 & -1/3 & 0 & 0 & 17/3 & -1/3 & 5/3 & 0 & 0 & R_0 = R_0 + 5R_1/3 \\ \hline
+   2/3 & 1/3 & 1 & 0  & 4/3  & 1/3 & 1/3 & 0 & 0 & R_1 = R_1/3\\
+   2/3 & 1/3 & 0 & 0 & -17/3 & 1/3 & -2/3 & 1 & 0 & R_2 = R_2 - 2 R_1/3\\
+   11/9 & 1/9 & 0 & 1 & 16/9 & 4/9 & 4/9 & 0 & 1/3 & R_3 = R_3 + 4R_1 /3  \\ \hline
+\end{array}
+$$
+Let $x_1$ enter the basis. The ratio test has a tie, we choose $x_7$ to exit the basis
+
+$$
+\begin{array}{c}
+\\
+\\
+x_2\\
+x_1 \\
+x_3 \\ 
+\end{array}
+\begin{array}{|c|cccccccc|l}
+     & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8  \\ \hline
+   0 & 0 & 1 & 0 & 21/3 & 0 & 2 & 0 & 0 & R_0 = R_0 + R_2 \\ \hline
+   0 & 0 & 1 & 0  & 7  & 0 & 1 & -1 & 0 & R_1 = R_1 - R_2\\
+   2 & 1 & 0 & 0 & -17 & 1 & -2 & 3 & 0 & R_2 = 3R_2 \\
+   1 & 0 & 0 & 1 & -37/27 & 17/27 & 2/27 & 5/3 & 1/3 & R_3 = R_3 - R_2 /3  \\ \hline
+\end{array}
+$$
+
+We can see that the current cost is 0. Also, no artficial variables are in the basis. Thus, we have a vlid basic feasible solution to start phase 2. \\
+
+Initial BFS : $(2,0,1,0,0)$ \\
+
+Now, for the original problem $c = (2,3,3,1,-2)$. Thus $c_B = (2,3,3)$. The vector of reduced costs is evaluated as:
+
+\[ \bar{c} = c' - c_B'B^{-1}A = (0,0,0,3,-1)\]
+

@@ -1,0 +1,49 @@
+We have the tableau with the following unknowns:
+
+
+$$
+\begin{array}{c}
+\\
+x_2 \\
+x_3 \\ 
+x_1 \\
+\end{array}
+\begin{array}{|c|ccccccc|}
+\hline
+  0 & 0 & 0 & 0 & \delta & 3 & \gamma & \xi \\ \hline
+  \beta & 0 & 1 & 0 & \alpha & 1 & 0 & 3 \\
+  2 & 0 & 0 & 1 & -2 & 2 & \eta & -1 \\
+  3 & 1 & 0 & 0 & 0 & -1 & 2 & 1 \\ \hline
+\end{array}
+$$
+
+\begin{enumerate}
+    \item For phase 2 to be applied, we need the current cost to be 0. This is satisfied. Also, we need all the artifical variables to have left the basis. We do not have any information about which variables are artificial and which are not. However, if $\beta > 0$, it is for sure not artificial as all the artificial variables are 0 when the current cost is 0. Thus, $\beta > 0$ is the only condition required for this tableau to be applied as the initial tableau for phase 2.
+    \item It is given that $\beta \ge 0$. 
+    For feasibility of the auxiliary problem, we have 
+    \begin{align}
+        Ax + y = b \notag\\
+        x,y \ge 0 \notag
+    \end{align}
+    where y are the artificial variables. Then,
+    \begin{align}
+        B^{-1}(Ax + y) = B^{-1}b \notag\\
+    \end{align}
+
+    The LHS of the above equation is the rows of the tableau of the auxiliary problem and the RHS is the column 0 of the tableau. \\
+    Thus, to satisfy this equality for row 1, we have
+    \[
+        \beta = x_2 + \alpha x_4 + x_5 + 3x_7 
+    \]
+    Since $x_4$, $x_5$ and $x_7$ are all non basic they are 0. Thus
+    \[
+        \beta = x_2
+    \]
+    which is trivially satisfied.
+    Thus $\beta \ge 0$ guarantees feasibility. No range of values for the other unknowns can make the problem with this tableau infeasible.
+
+    \item For the basic solution to be feasible, as discussed above, we need $\beta \ge 0$. Now, for the corresponding basis to be non optimal, we need one of the reduced costs to be negative. Thus $\delta < 0$ or $\gamma < 0$ or $\xi < 0$.
+    \item Again, for feasibility we need $\beta \ge 0$. Next, we look at the columns of the prospective non-basic variables that can enter the basis. Ideally, we would like to have a situation where the column we pick to enter the basis has only negative d's implying an optimal cost of $-\infty$. We can do this by setting $\gamma > 0$ and $\xi > 0$ and $\delta < 0$ so that column 4 is the only one with negative reduced cost. Then, we set $\alpha \le 0$ so that all the d's are negative and thus the optimal cost is $-\infty$.
+    \item For feasibility we have $\beta \ge 0$. To make $x_6$ a candidate for entering the basis, we set $\gamma < 0$. To make $x_3$ leave the basis, we need $\frac{3}{2} > \frac{2}{\eta}$. Thus $\eta > \frac{4}{3}$.
+    \item For feasibility we have $\beta \ge 0$. To make $x_7$ a candidate for entering the basis, we set $\xi < 0$. In this case, we need the solution and the objective value to remain unchanged. This can only happen if we set $\beta = 0$ and cycle. We don't require any other constraints on the other unknowns. 
+\end{enumerate}
