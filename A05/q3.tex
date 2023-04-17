@@ -1,4 +1,33 @@
 \textit{Note : This is question 4 in the assignment sheet}
 
+Let $x$ be the basic feasible solution corresponding to the given tableau, with $x_{m+1}=x_n=0$ as $N=\{m+1, m+2, \cdots , n-1, n\}$ are the nonbasic indices. 
+
+Suppose that, by iterating once (i.e. performing the pivot described in the problem) we reach the basic feasible solution $\bar{x}$. As the pivot described is nondegenerate, and is in a direction of decreasing cost, we know that $c'x>c'\bar{x}$. But, in general, the simplex method will iterate by providing a new basic feasible solution with the same or smaller cost, therefore any further iteration to some basic feasible solution $\tilde{x}$ will have the same or less cost than $\bar{x}$. But, since $c'x>c'\bar{x}$, we have $c'x>c'\tilde{x}$
+
+We know that $x_n$ enters the basis at $\bar{x}$; suppose it then leaves the basis as we iterate to the basic feasible solution $\tilde{x}$. We consider the vector $d=(\tilde{x}-x)$, and the associated cost $c'd$. Since $c'x>c'\tilde{x}$, we have
+
+$$
+c'd=c'(\tilde{x}-x)=c'\tilde{x}-c'x<0
+$$
+
+However, since we know the reduced costs at $x$, we can also write $c'd$ as
+
+$$
+c'd=\sum_{i\in N}\bar{c}_id_i=\sum_{i=m+1}^n\bar{c}_id_i=\sum_{i=m+1}^{n-1}\bar{c}_id_i+\bar{c}_nd_n
+$$
+
+The problem tells us that $\bar{c}_i\geq 0$ for $i=m+1, m+2, \cdots, n-1$. Furthermore, since $x_i=0$ (as $i\in N$) and $\tilde{x}_i\geq 0$ (since $\tilde{x}$ is feasible), we know that $d_i\geq 0$ for all $i=m+1, m+2, \cdots, n-1$. Thus $\sum_{i=m+1}^{n-1}\bar{c}_id_i\geq 0$.
+
+Furthermore, the problem tells us that $\bar{c}_n<0$, but since $x_n$ is nonbasic both at $x$ and at $\tilde{x}$, we know that $d_n=0$, and $\bar{c}_nd_n=0$. Thus
+
+$$
+c'd=\sum_{i=m+1}^{n-1}\bar{c}_id_i+\bar{c}_nd_n=\sum_{i=m+1}^{n-1}\bar{c}_id_i \geq 0
+$$
+
+However, this would suggest that the cost increases as we travel from $x$ to $\tilde{x}$, which it must not. Thus, we have reached a contradiction, and $x_n$ cannot enter the basis in further iterations of the simplex method.
+
+Q.E.D.
+
+
 
 
