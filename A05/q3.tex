@@ -1,5 +1,7 @@
 \textit{Note : This is question 4 in the assignment sheet}
-\subsection*{a}
+
+\subsection{Part a}
+
 Let $x$ be the basic feasible solution corresponding to the given tableau, with $x_{m+1}=x_n=0$ as $N=\{m+1, m+2, \cdots , n-1, n\}$ are the nonbasic indices. 
 
 Suppose that, by iterating once (i.e. performing the pivot described in the problem) we reach the basic feasible solution $\bar{x}$. As the pivot described is nondegenerate, and is in a direction of decreasing cost, we know that $c'x>c'\bar{x}$. But, in general, the simplex method will iterate by providing a new basic feasible solution with the same or smaller cost, therefore any further iteration to some basic feasible solution $\tilde{x}$ will have the same or less cost than $\bar{x}$. But, since $c'x>c'\bar{x}$, we have $c'x>c'\tilde{x}$
@@ -28,7 +30,49 @@ However, this would suggest that the cost increases as we travel from $x$ to $\t
 
 Q.E.D.
 
-\subsection*{b}
+\subsection{Part b}
+
+Consider the following tableau:
+
+$$
+\begin{array}{c}
+\\
+x_1 \\
+x_2 \\ 
+\end{array}
+\begin{array}{|c|cccc|}
+\hline
+  0 & 0 & 0 & 0 & -1 \\ \hline
+  0 & 1 & 0 & 1 & 1 \\
+  1 & 0 & 1 & -2 & 0\\ \hline
+\end{array}
+$$
 
 
+This tableau conforms to the assignment problem (where $n=4$):
+\begin{itemize}
+\item $m=2$: We have basic variables $x_1, x_2$
+\item $\bar{c}_j\geq 0$ for $j=3, 4$
+\item $\bar{c}_n<0$: $\bar{c}_4=-1$
+\end{itemize}
+Since $\bar{c}_4$ is the only negative reduced cost, we have $x_4$ enter the basis, and we have a degenerative pivot as $\theta^*=\frac{x_1}{a_{1,n}}=0$. Thus, this tableau is an example of the given tableau template.
 
+We then pivot on $x_4$, yielding the following tableau:
+
+$$
+\begin{array}{c}
+\\
+x_4 \\
+x_2 \\ 
+\end{array}
+\begin{array}{|c|cccc|c}
+\hline
+  0 & 1 & 0 & 1 & 0 & R_0=R_0+R_1\\ \hline
+  0 & 1 & 0 & 1 & 1 & R_1=R_1\\
+  1 & 0 & 1 & -2 & 0 & R_2=R_2\\ \hline
+\end{array}
+$$
+
+At this point, the simplex method terminates, as all reduced costs are non-negative, and we have the optimal basic feasible solution $x=(0, 1, 0, 0)$ with optimal cost $0$. Note, however, that since the original tableau had the same cost, that basic feasible solution is also optimal, and in that solution, \textit{$x$ was nonbasic}. Thus, when the pivot is degenerate, $x_n$ need not be basic in an optimal basic feasible solution.
+
+Q.E.D.
