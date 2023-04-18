@@ -8,7 +8,7 @@ Consider an LP problem \textit{LP1} given by
     &x_i \ge 0, i = 1,2....m \notag\\
 \end{align}
 
-To transform to this to an equivalent one that contains the constraint $\sum_{i=1}^{m}x_i = 1$, we use the following: 
+To transform to this to an equivalent one that contains the constraint $\sum_{i=1}^{n}x_i = 1$, we use the following: 
 \[ x_i \le U\]
 \[ \sum_{i=1}^{m}x_i \le mU \]
 \[ \frac{\sum_{i=1}^{m}x_i}{mU} \le 1\]
@@ -36,4 +36,25 @@ Thus \textit{LP2} is formulated as:
     &x_{new,i} \ge 0, i = 1,2....m+1 \notag\\
 \end{align}
 
-\textit{LP1} and \textit{LP2} are equivalent because they only differ by a slack variable. From Examples 1.4 and 1.5 in the slides, we know that introduction of a slack variable leads to an equivalent LP problem. Additionally, \textit{LP1} can always be constructed by projecting and scaling \textit{LP2} and the cost vector scales as well. Thus they must be equivalent.
+Setting $m+1$ as $n$ we get
+
+\begin{align}
+    \text{min. } &c_{new}'x_{new} \notag\\
+    \text{S.T. } &A_{new}x_{new} = b_{new} \notag\\
+    &\sum_{i=1}^{n}x_{new,i} = 1 \notag \\
+    &x_{new,i} \ge 0, i = 1,2....n \notag\\
+\end{align}
+
+
+For equivalence, we first show that every feasible solution of \textit{LP1}, we can construct a feasible solution of the modified problem with an equal or lesser cost. \\
+
+Let $x$ be a feasbible solution to the original problem, then let,
+
+\[x_{new} = \left[\frac{x_i}{mU} \:|\: 1 - \frac{\sum_{x_i}^{m}}{mU}\right]'\]
+
+for $i=1,2...m$ is a feasible solution in \textit{LP2} with the same cost.
+
+Similarly, let $x_new$ be a feasible solution in \textit{LP2}, then we just drop $x_{m+1} = x_{n}$ and project from $\mathbb{R}^n \text{ to } \mathbb{R}^m$ to get
+
+\[ x = [mUx_i]\]
+where $i=1,2...m$. This will have the same cost. Thus, the two problems are equivalent.
