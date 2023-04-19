@@ -38,7 +38,7 @@ To show that \textit{LP1} and \textit{LP2} are equivalent problems, we show that
 
 Let $x$ be a feasible solution to \textit{LP1}, and consider the following solution to \textit{LP2}:
 
-\[x_{new} = \left[\frac{x_i}{mU} \:|\: 1 - \frac{\sum_{x_i}^{m}}{mU}\right]'\]
+\[x_{new} = \left[\frac{x_i}{mU} \:|\: 1 - \frac{\sum_{i=1}^{m}x_i}{mU}\right]'\]
 
 Firstly, because the last column of $A_{new}=0$, we know that $x_{new, m+1}$ will not factor into any of the constraints. Thus we have $A_{new}x_{new}=\frac{1}{mU}Ax=\frac{b}{mU}=b_{new}$, and we satisfy the constraints.
 
@@ -46,7 +46,7 @@ Secondly, by construction, we know that $\sum_{i=1}^{m+1}x_i=\sum_{i=1}^{m}\frac
 
 Thirdly, because $x_i, m, U$ are non-negative, $x_{new}\geq 0$, and $x_{new}$ satisfies that constraint.
 
-Finally, since $c_{new}'x_{new}=\sum_{i=1}^m mU\cdot c_i\cdot \frac{x_i}{mU} + 0\cdot (1 - \frac{\sum_{x_i}^{m}}{mU})=c'x$, we have a solution with the same cost.
+Finally, since $c_{new}'x_{new}=\sum_{i=1}^m mU\cdot c_i\cdot \frac{x_i}{mU} + 0\cdot (1 - \frac{\sum_{i=1}^{m}x_i}{mU})=c'x$, we have a solution with the same cost.
 
 
 Similarly, let $x_{new}$ be a feasible solution in \textit{LP2}, then we just drop $x_{m+1}$ and project from $\mathbb{R}^{m+1} \text{ to } \mathbb{R}^m$ to get
