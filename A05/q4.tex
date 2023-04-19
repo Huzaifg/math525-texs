@@ -16,13 +16,13 @@ Thus, we introduce a slack varibale $x_{m+1}$ such that,
 
 We then formulate a new LP problem \textit{LP2}, where
 
-\[ x_{new} = [\frac{x_i}{mU} | x_{m+1}]\]
+\[ x_{new} = (\frac{x_i}{mU} | x_{m+1})\]
 where $i=1,2....m$
 Additionally, we modify the other matrices and vectors as 
 
 \[ A_{new} = [A | 0]'\]
-\[ c_{new} = [mU.c | 0]'\]
-\[ b_{new} = \frac{1}{mU}.b\]
+\[ c_{new} = [mU\cdot c | 0]'\]
+\[ b_{new} = \frac{b}{mU}\]
 
 Thus \textit{LP2} is formulated as:
 
@@ -34,25 +34,26 @@ Thus \textit{LP2} is formulated as:
     &x_{new,i} \ge 0, i = 1,2....m+1 \notag\\
 \end{align}
 
-Setting $m+1$ as $n$ we get
+To show that \textit{LP1} and \textit{LP2} are equivalent problems, we show that for every feasible solution in either of the problems we can find a solution in the other problem with the same or lower cost.\\
 
-\begin{align}
-    \text{min. } &c_{new}'x_{new} \notag\\
-    \text{S.T. } &A_{new}x_{new} = b_{new} \notag\\
-    &\sum_{i=1}^{n}x_{new,i} = 1 \notag \\
-    &x_{new,i} \ge 0, i = 1,2....n \notag\\
-\end{align}
-
-
-For equivalence, we first show that every feasible solution of \textit{LP1}, we can construct a feasible solution of the modified problem with an equal or lesser cost. \\
-
-Let $x$ be a feasbible solution to the original problem, then let,
+Let $x$ be a feasible solution to \textit{LP1}, and consider the following solution to \textit{LP2}:
 
 \[x_{new} = \left[\frac{x_i}{mU} \:|\: 1 - \frac{\sum_{x_i}^{m}}{mU}\right]'\]
 
-for $i=1,2...m$ is a feasible solution in \textit{LP2} with the same cost.
+Firstly, because the last column of $A_{new}=0$, we know that $x_{new, m+1}$ will not factor into any of the constraints. Thus we have $A_{new}x_{new}=\frac{1}{mU}Ax=\frac{b}{mU}=b_{new}$, and we satisfy the constraints.
 
-Similarly, let $x_new$ be a feasible solution in \textit{LP2}, then we just drop $x_{m+1} = x_{n}$ and project from $\mathbb{R}^n \text{ to } \mathbb{R}^m$ to get
+Secondly, by construction, we know that $\sum_{i=1}^{m+1}x_i=\sum_{i=1}^{m}\frac{x_i}{mU}+(1 - \frac{\sum_{x_i}^{m}}{mU})=1$, and we satisfy that constraint.
 
-\[ x = [mUx_i]\]
-where $i=1,2...m$. This will have the same cost. Thus, the two problems are equivalent.
+Thirdly, because $x_i, m, U$ are non-negative, $x_{new}\geq 0$, and $x_{new}$ satisfies that constraint.
+
+Finally, since $c_{new}'x_{new}=\sum_{i=1}^m mU\cdot c_i\cdot \frac{x_i}{mU} + 0\cdot (1 - \frac{\sum_{x_i}^{m}}{mU})=c'x$, we have a solution with the same cost.
+
+
+Similarly, let $x_{new}$ be a feasible solution in \textit{LP2}, then we just drop $x_{m+1}$ and project from $\mathbb{R}^{m+1} \text{ to } \mathbb{R}^m$ to get
+
+\[ x = (mUx_{new,1}, mUx_{new, 2}, \cdots, mUx_{new, m})\]
+To make life easier, we note that the above arguments can be applied in reverse to show that $x$ has the same cost as $x_{new}$. Thus, the two problems are equivalent.
+
+We have shown so far that we can turn an $m$-variable problem into a $(m+1)$-variable problem where $\sum_{i=1}^{m+1}x_i=1$. To obtain a problem including the constraint $\sum_{i=1}^nx_i=1$, we simply repeat the procedure $n-m$ times on the output of the previous iteration to produce a problem with $n$ variables.
+
+Q.E.D.
