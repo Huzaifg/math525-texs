@@ -1,26 +1,51 @@
-Consider that during Phase 1 of the simplex algorithm a artificial variable leaves the basis and becomes non-basic. We can then write this as two LP problems, 
+Suppose that we wish to solve the following LP problem:
 
-LP1 before the artificial leaves the basis (consider m actual variables and n artificial variables):
+\begin{align}
+    \text{min. } &c'x \notag\\
+    \text{S.T. } &Ax = b \notag\\
+    &x_i \ge 0, i = 1,2....m \notag\\
+\end{align}
+
+We consider the following auxiliary problem in phase 1 of the two-phase simplex method:
 
 \begin{align}
     \text{min. } &\sum_{i=1}^{m}y_i \notag\\
     \text{S.T. } &Ax + y = b \notag\\
     &x_i \ge 0, i = 1,2....m \notag\\
-    &y_i \ge 0, i = 1....m-n \notag\\
+    &y_i \ge 0, i = 1....m \notag\\
 \end{align}
 
-LP2 after the artificial variable leaves the basis and we drop it out:
+Suppose that, while iterating on this problem during phase 1, an artificial variable $y_k$, $1\leq k\leq m$ leaves the basis, becoming non-basic. Because the artificial variables can be arbitrarily ordered, without loss of generality we say that $y_m$ leaves the basis. We argue that stopping iteration, and instead iterating on the following auxiliary problem, will also find an initial basic feasible solution. Note that this problem is identical to the former, save for the removal of $y_m$ from the problem.
 
 \begin{align}
     \text{min. } &\sum_{i=1}^{m-1}y_i \notag\\
     \text{S.T. } &Ax + y = b \notag\\
     &x_i \ge 0, i = 1,2....m \notag\\
-    &y_i \ge 0, i = 1....m-n-1 \notag\\
+    &y_i \ge 0, i = 1....m-1 \notag\\
 \end{align}
 
-Now, we need to show that LP2 is feasible if and only if LP1 is feasible. Also, we need to show that if LP1 and LP2 both have the same optimal cost of 0, if they are feasible. 
-If LP1 is feasible, there exists an $x$ such that with $y=0$ we have $(x,y)$ to be a feasible solution. This feasible solution has zero cost. Note that this solution is also feasible for LP2 with the vector $(x,y)$ just being of lower dimension and with the same optimal cost of 0. For the inverse, if $(x,y)$ is a vector of size $n-1$ and is feasible in LP2, then there is a corresponding feasible solution $(x,y,0)$ in LP1 with the same cost. \\
+Now, we need to show that the optimal cost of this new problem is zero if and only if the original problem is feasible. 
 
-Now, if LP1 is infeasible, then there exists no $(x,0)$ in LP1 that is feasible. If follows then that there is no $(x,0)$, where the zero vector has a dropped dimension, in LP2 that is feasible. \\
+Suppose that the original problem is feasible. This means that there exists some $x\geq0$ such that $Ax=b$. We then consider the vector $(x,y)$, where for the $(m-1)$-dimensional vector $y$, $y_i=0$, $i=1, ..., m-1$. Because $y=0$, $Ax+y=Ax+0=b$, meaning $(x,y)$ satisfies the constraints of the new problem and has cost $\sum_{i=1}^{m-1}y_i=0$. We note that since $y_i\geq 0$, this summation cannot go below $0$. Thus we have found that the optimal cost of this new problem is zero.
 
-To summarize, even if an artificial variable is dropped from the tableau once it becomes non-basic, it does not affect the outcome of phase 1. 
+Suppose that the optimal cost of this problem is zero. For a problem to have an optimal cost, there must be a solution $(x,y)$ with that optimal cost. Since $y_i\geq 0$, for $\sum_{i=1}^{m-1}y_i=0$ to hold all $y_i$ must be zero. Since $(x,y)$ is a solution to this problem, the equality constraints tell us that $x_i\geq 0$ for all $i=1, ...,m$. Furthermore, we have
+
+\begin{align}
+	Ax+y&=b\notag\\
+	Ax&=b\notag\\
+	x&=A^{-1}b \notag\\
+\end{align}
+
+Then the vector $x$ is a solution to our original problem, as:
+\begin{itemize}
+\item $x_i\geq 0$, for all $1\leq i\leq m$
+\item $Ax=AA^{-1}b=b$
+\end{itemize}
+
+Since we have found a solution to the original problem, it is thus feasible, and we can solve this new auxiliary problem instead.
+
+Note that removing a variable from a linear problem (both the variable and the associated column of $A$) is equivalent to removing a column from the tableau, so when we pivot an artificial variable out of the basis, we can just remove its column from the tableau.
+
+Q.E.D.
+
+
