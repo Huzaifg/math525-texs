@@ -3,7 +3,7 @@ Consider that during Phase 1 of the simplex algorithm a artificial variable leav
 LP1 before the artificial leaves the basis (consider m actual variables and n artificial variables):
 
 \begin{align}
-    \text{min. } &\sum_{i=1}^{m-n}y_i \notag\\
+    \text{min. } &\sum_{i=1}^{m}y_i \notag\\
     \text{S.T. } &Ax + y = b \notag\\
     &x_i \ge 0, i = 1,2....m \notag\\
     &y_i \ge 0, i = 1....m-n \notag\\
@@ -12,7 +12,7 @@ LP1 before the artificial leaves the basis (consider m actual variables and n ar
 LP2 after the artificial variable leaves the basis and we drop it out:
 
 \begin{align}
-    \text{min. } &\sum_{i=1}^{m-n-1}y_i \notag\\
+    \text{min. } &\sum_{i=1}^{m-1}y_i \notag\\
     \text{S.T. } &Ax + y = b \notag\\
     &x_i \ge 0, i = 1,2....m \notag\\
     &y_i \ge 0, i = 1....m-n-1 \notag\\
