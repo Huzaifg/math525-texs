@@ -17,12 +17,12 @@ Thus, we introduce a slack variable $x_{n+1}$ such that
 
 We then formulate a new LP problem \textit{LP2}, where
 
-\[ x_{new} = (\frac{x_i}{nU} | x_{n+1})\]
+\[ x_{new} = \begin{pmatrix}\frac{x_1}{nU} & \frac{x_2}{nU}&\cdots & \frac{x_n}{nU} & x_{n+1}\end{pmatrix}\]
 where $i=1,2....n$
 Additionally, we modify the other matrices and vectors as 
 
-\[ A_{new} = [A | 0]'\]
-\[ c_{new} = [nU\cdot c | 0]'\]
+\[ A_{new} = [A | 0]\]
+\[ c_{new} = \begin{pmatrix}nUc_1 & nUc_2 & \cdots & nUc_n & 0\end{pmatrix}\]
 \[ b_{new} = \frac{b}{nU}\]
 
 Thus \textit{LP2} is formulated as:
@@ -41,7 +41,7 @@ To show that \textit{LP1} and \textit{LP2} are equivalent problems, we show that
 
 Let $x$ be a feasible solution to \textit{LP1}, and consider the following solution to \textit{LP2}:
 
-\[x_{new} = \left[\frac{x_i}{nU} \:|\: 1 - \frac{\sum_{i=1}^{n}x_i}{nU}\right]'\]
+\[x_{new} = \begin{pmatrix}\frac{x_1}{nU} & \frac{x_2}{nU} & \cdots & \frac{x_n}{nU} & (1 - \frac{\sum_{i=1}^{n}x_i}{nU})\end{pmatrix}\]
 
 Firstly, because the last column of $A_{new}=0$, we know that $x_{new, n+1}$ will not factor into any of the constraints. Thus we have $A_{new}x_{new}=\frac{1}{nU}Ax=\frac{b}{nU}=b_{new}$, and we satisfy the constraints.
 

@@ -15,23 +15,23 @@ We consider the following auxiliary problem in phase 1 of the two-phase simplex 
     &y_i \ge 0, i = 1....m \notag\\
 \end{align}
 
-Suppose that, while iterating on this problem during phase 1, an artificial variable $y_k$, $1\leq k\leq m$ leaves the basis, becoming non-basic. Because the artificial variables can be arbitrarily ordered, without loss of generality we say that $y_m$ leaves the basis. We argue that stopping iteration, and instead iterating on the following auxiliary problem, will also find an initial basic feasible solution. Note that this problem is identical to the former, save for the removal of $y_m$ from the problem.
+Suppose that, while iterating on this problem during phase 1, an artificial variable $y_k$, $1\leq k\leq m$ leaves the basis, becoming non-basic. Because the artificial variables can be arbitrarily ordered, without loss of generality we say that $y_m$ leaves the basis. We argue that stopping iteration, and instead iterating on the following auxiliary problem, will also find an initial basic feasible solution. Note that this problem is identical to the former, save for the removal of $y_m$ from the problem. We denote $y^*=\begin{pmatrix}y_1 & y_2 & \cdots & y_{m-1}\end{pmatrix}$
 
 \begin{align}
-    \text{min. } &\sum_{i=1}^{m-1}y_i \notag\\
-    \text{S.T. } &Ax + y = b \notag\\
+    \text{min. } &\sum_{i=1}^{m-1}y_i^* \notag\\
+    \text{S.T. } &Ax + y^* = b \notag\\
     &x_i \ge 0, i = 1,2....m \notag\\
-    &y_i \ge 0, i = 1....m-1 \notag\\
+    &y_i^* \ge 0, i = 1....m-1 \notag\\
 \end{align}
 
 Now, we need to show that the optimal cost of this new problem is zero if and only if the original problem is feasible. 
 
-Suppose that the original problem is feasible. This means that there exists some $x\geq0$ such that $Ax=b$. We then consider the vector $(x,y)$, where for the $(m-1)$-dimensional vector $y$, $y_i=0$, $i=1, ..., m-1$. Because $y=0$, $Ax+y=Ax+0=b$, meaning $(x,y)$ satisfies the constraints of the new problem and has cost $\sum_{i=1}^{m-1}y_i=0$. We note that since $y_i\geq 0$, this summation cannot go below $0$. Thus we have found that the optimal cost of this new problem is zero.
+Suppose that the original problem is feasible. This means that there exists some $x\geq0$ such that $Ax=b$. We then consider the vector $(x,y^*)$, where for the $(m-1)$-dimensional vector $y^*$, $y_i^*=0$, $i=1, ..., m-1$. Because $y^*=0$, $Ax+y^*=Ax+0=b$, meaning $(x,y^*)$ satisfies the constraints of the new problem and has cost $\sum_{i=1}^{m-1}y_i^*=0$. We note that since $y_i^*\geq 0$, this summation cannot go below $0$. Thus we have found that the optimal cost of this new problem is zero.
 
-Suppose that the optimal cost of this problem is zero. For a problem to have an optimal cost, there must be a solution $(x,y)$ with that optimal cost. Since $y_i\geq 0$, for $\sum_{i=1}^{m-1}y_i=0$ to hold all $y_i$ must be zero. Since $(x,y)$ is a solution to this problem, the equality constraints tell us that $x_i\geq 0$ for all $i=1, ...,m$. Furthermore, we have
+Suppose that the optimal cost of this problem is zero. For a problem to have an optimal cost, there must be a solution $(x,y^*)$ with that optimal cost. Since $y_i^*\geq 0$, for $\sum_{i=1}^{m-1}y_i^*=0$ to hold all $y_i^*$ must be zero. Since $(x,y^*)$ is a solution to this problem, the equality constraints tell us that $x_i\geq 0$ for all $i=1, ...,m$. Furthermore, we have
 
 \begin{align}
-	Ax+y&=b\notag\\
+	Ax+y^*&=b\notag\\
 	Ax&=b\notag\\
 	x&=A^{-1}b \notag\\
 \end{align}
