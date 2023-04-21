@@ -1,0 +1,21 @@
+We have the LP:
+\begin{align}
+    \text{minimize } &x_1 - x_2 \notag\\
+    \text{subject to } &2x_1 + 3x_2 - x_3 + x_4 \leq 0 \notag\\
+                    &3x_1 + x_2 + 4x_3 - 2x_4 \geq 3 \notag\\
+                    &-x_1 - x_2 + 2x_3 + x_4 = 6\notag\\
+                    & x_1 \geq 0\notag\\
+                    & x_2, x_3 \geq 0\notag
+\end{align}
+
+We note that the cost vector becomes $b$, and our new variables are $p=\begin{pmatrix}p_1 & p_2 & p_3\end{pmatrix}$ We then transform the constraints and vectors of this primal problem to obtain the dual:
+
+\begin{align}
+    \text{maximize } &3p_2 + 6p_3 \notag\\
+    \text{subject to } & 2p_1 + 3p_2 - p_3 \geq 1 \notag\\
+                    & 3p_1 + p_2 - p_3 \leq -1 \notag\\
+                    & -p_1 + 4p_2 + 2p_3 \leq 0\notag\\
+                    & p_1 - 2p_2 + p_3 = 0\notag\\
+                    & p_1 \leq 0\notag\\
+                    & p_2 \geq 0\notag
+\end{align}
