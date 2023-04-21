@@ -1,0 +1,5 @@
+A potential idea (further thought needed):
+
+We know that Corollary 4.2 says that if $p'b=c'x$ for feasible $x$ to the primal problem and $p$ to the dual problem, then $x$ and $p$ are optimal solutions to the two problems.
+
+What if, given a LP problem, we found the dual, took all of the constraints from \textit{both} the primal and the dual, and then added the constraint $p'b-c'x=0$ to that collection, and then passed that to the oracle? We'd get back a vector $(x,p)$ where $x$ satisfies the constraints of the primal, $p$ satisfies the constraints of the dual, and also know that $p'b-c'x=0$. Specifically, because that last one holds, I think $x$ would be an optimal solution!
