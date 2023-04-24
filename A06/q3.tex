@@ -1,0 +1,54 @@
+% The given problem can be rewritten in matrix form as,
+
+% \begin{align}
+%     \text{min } &\text{max } Ax - b \notag\\
+%     \text{s.t }  &x \in \mathbb{R}^n\notag\\
+% \end{align}
+
+% where $A$ is a matrix made up of the $m$ rows $a_i'$. \\
+
+The problem represents a minimization of a piecewise linear convex objective function that we dealt with in chapter 1. Using slide 90 of 140, we can convert this into a LP as;
+
+\begin{align}
+    \text{min } &z \notag\\
+    \text{s.t }  &z \ge a_i'x - b_i \text{ for } i=1,...m\notag
+\end{align}
+
+To make it easier to convert to a dual problem, we rewrite this in matrix form as;
+
+\begin{align}
+    \text{min } &z \notag\\
+    \text{s.t }  &oz \ge Ax - b \notag
+\end{align}
+
+Where $o$ is a vector of $1$'s $\in \mathbb{R}^m$. $A$ is a matrix of $m$ rows $a_i'$ of dimension $n$ stacked (thus a matrix of size $m \times n$).
+
+Rearranging this we get,
+
+\begin{align}
+    \text{min } &z \notag\\
+    \text{s.t }  &-Ax + oz \ge -b  \notag\\
+                &x, z \text{ are free }\notag
+\end{align}
+
+Now the dual of this is, 
+
+\begin{align}
+    \text{min } &p'(-b) \notag\\
+    \text{s.t }  &p \ge 0  \notag\\
+                &-p'A = 0 = p'A \notag\\
+                &p'o = 1 \notag
+\end{align}
+
+Notice that $p'o = p' [1, 1, .....1]' = \sum_{i=1}^{m} p_i$. Thus, the problem is written as:
+
+\begin{align}
+    \text{min } &p'(-b) \notag\\
+    \text{s.t }  &p \ge 0  \notag\\
+                &-p'A = 0 = p'A \notag\\
+                &\sum_{i=1}^{m} p_i = 1 \notag
+\end{align}
+
+(a) From the weak duality theorem, we know that the optimal cost of the dual is lower bound to the optimal cost of the primal. We know that the optimal cost of the primal is $v$. The optimal cost of the dual is $-p'b$. Thus $-p'b \le v$ \\
+
+(b) We have already shown that the LP given in the question is the dual of the original LP. From the strong duality theorem, we know that if both primal has an optimal solution (which it does) so does the dual, and the optimal costs are the same. Thus, the optimal cost of this LP is $v$.
