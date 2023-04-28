@@ -1,5 +1,50 @@
-A potential idea (further thought needed):
+We make use of Corollary 4.2. Consider an arbitrary primal and its dual:
 
-We know that Corollary 4.2 says that if $p'b=c'x$ for feasible $x$ to the primal problem and $p$ to the dual problem, then $x$ and $p$ are optimal solutions to the two problems.
+\begin{align}
+    \text{minimize } &c'x &&\notag\\
+    \text{subject to } &a_i'x\geq b_i &&  i\in M_1 \notag\\
+                    &a_i'x\leq b_i &&  i \in M_2 \notag\\
+                    &a_i'x= b_i &&  i \in M_3 \notag\\
+                    &x_j\geq 0 && j \in N_1 \notag\\
+                    &x_j\leq 0 && j \in N_2 \notag\\
+                    &x_j\text{ free} && j \in N_3 \notag\\\\  
+    \text{maximize } &p'b\notag&&\\
+    \text{subject to } &p_i\geq 0 &&  i\in M_1 \notag\\
+                    &p_i\leq 0 &&  i \in M_2 \notag\\
+                    &p_i\text{ free} &&  i \in M_3 \notag\\
+                    &p'A_j\leq c_j && j \in N_1 \notag\\
+                    &p'A_j\geq c_j && j \in N_2 \notag\\
+                    &p'A_j=c_j && j \in N_3 \notag
+\end{align}
 
-What if, given a LP problem, we found the dual, took all of the constraints from \textit{both} the primal and the dual, and then added the constraint $p'b-c'x=0$ to that collection, and then passed that to the oracle? We'd get back a vector $(x,p)$ where $x$ satisfies the constraints of the primal, $p$ satisfies the constraints of the dual, and also know that $p'b-c'x=0$. Specifically, because that last one holds, I think $x$ would be an optimal solution!
+By the problem statement, any LP problem that we consider must have some optimal $x$. By strong duality, we know that its dual has some optimal $p$ such that $c'x=p'b$.
+
+To find some optimal solution $x$, we then pass the following system of inequalities to the oracle:
+
+\begin{align}
+					&c'x-p'b=0\notag\\\\
+                    &a_i'x\geq b_i &&  i\in M_1 \notag\\
+                    &a_i'x\leq b_i &&  i \in M_2 \notag\\
+                    &a_i'x= b_i &&  i \in M_3 \notag\\
+                    &x_j\geq 0 && j \in N_1 \notag\\
+                    &x_j\leq 0 && j \in N_2 \notag\\\\
+                    &p_i\geq 0 &&  i\in M_1 \notag\\
+                    &p_i\leq 0 &&  i \in M_2 \notag\\
+                    &p'A_j\leq c_j && j \in N_1 \notag\\
+                    &p'A_j\geq c_j && j \in N_2 \notag\\
+                    &p'A_j=c_j && j \in N_3 \notag
+\end{align}
+
+If the oracle then returns a solution $(x, p)$ to this system of inequalities, we will know the following:
+
+\begin{itemize}
+\item $x$ is a feasible solution to the primal, as it satisfies $a_i'x\geq b_i$ for all $i\in M_1$, $a_i'x\leq b_i$ for all $i\in M_2$, and $a_i'x=b_i$ for all $i\in M_3$, as well as $x_j\geq 0$ for all $j\in N_1$ and $x_j\leq 0$ for all $j\in N_2$.
+\item $p$ is a feasible solution to the dual, as it satisfies $p'A_j\leq c_j$ for all $j\in N_1$, $p'A_j\geq c_j$ for all $j\in N_2$, and $p'A_j=c_j$ for all $j\in N_3$, as well as $p_i\geq 0$ for all $i\in M_1$ and $p_i\leq 0$ for all $i\in M_2$.
+\item $c'x=p'b$, since $x$ and $p$ satisfy the equality $c'x-p'b=0$.
+\end{itemize}
+
+Therefore, since we have feasible solutions $x$ and $p$ to the primal and dual respectively, where $c'x=p'b$, $x$ is an optimal solution to the primal problem.
+
+We now, by contradiction, will show that the oracle cannot state that no solution exists to our system. Suppose that oracle states that no such solution $(x, p)$ exists. However, we know by the problem statement that there exists some optimal solution $x^*$ to the primal, and strong duality tells us that there must then exist some solution $p^*$ to the dual where $c'x^*=p'b^*$. Therefore $(x^*, p^*)$ is a solution to this system of equations, which contradicts the oracle's statement that there are no solutions. Therefore, the oracle cannot state that no solution exists, and we will always receive a solution by providing the oracle with this system of equations.
+
+Q.E.D.
