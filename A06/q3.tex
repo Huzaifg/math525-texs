@@ -14,20 +14,18 @@ The problem represents a minimization of a piecewise linear convex objective fun
     \text{s.t }  &z \ge a_i'x - b_i \text{ for } i=1,...m\notag
 \end{align}
 
-To make it easier to convert to a dual problem, we rewrite this in matrix form as;
+We can concatenate these constraints into a matrix $A\in\mathbb{R}^{m\times n}$, also making use of the vector $1'\in\mathbb{R}^m$ of ones:
 
 \begin{align}
     \text{min } &z \notag\\
-    \text{s.t }  &oz \ge Ax - b \notag
+    \text{s.t }  &1'z \ge Ax - b \notag
 \end{align}
-
-Where $o$ is a vector of $1$'s $\in \mathbb{R}^m$. $A$ is a matrix of $m$ rows $a_i'$ of dimension $n$ stacked (thus a matrix of size $m \times n$).
 
 Rearranging this we get,
 
 \begin{align}
     \text{min } &z \notag\\
-    \text{s.t }  &-Ax + oz \ge -b  \notag\\
+    \text{s.t }  &-Ax + 1'z \ge -b  \notag\\
                 &x, z \text{ are free }\notag
 \end{align}
 
@@ -35,20 +33,29 @@ Now the dual of this is,
 
 \begin{align}
     \text{min } &p'(-b) \notag\\
-    \text{s.t }  &p \ge 0  \notag\\
-                &-p'A = 0 = p'A \notag\\
-                &p'o = 1 \notag
+    \text{s.t }  &p \ge 0 \notag\\
+                &-p'A = 0 \notag\\
+                &p'1' = 1 \notag
 \end{align}
 
-Notice that $p'o = p' [1, 1, .....1]' = \sum_{i=1}^{m} p_i$. Thus, the problem is written as:
+We note that if $-p'A=0$, then $p'A=0$, yielding:
+
+\begin{align}
+    \text{min } &p'(-b) \notag\\
+    \text{s.t }  &p \ge 0 \notag\\
+                &p'A = 0 \notag\\
+                &p'1' = 1 \notag
+\end{align}
+
+Notice that $p'1' = p' [1, 1, .....1]' = \sum_{i=1}^{m} p_i$. Thus, the problem is written as:
 
 \begin{align}
     \text{min } &p'(-b) \notag\\
     \text{s.t }  &p \ge 0  \notag\\
-                &-p'A = 0 = p'A \notag\\
+                &p'A = 0 \notag\\
                 &\sum_{i=1}^{m} p_i = 1 \notag
 \end{align}
 
-(a) From the weak duality theorem, we know that the optimal cost of the dual is lower bound to the optimal cost of the primal. We know that the optimal cost of the primal is $v$. The optimal cost of the dual is $-p'b$. Thus $-p'b \le v$ \\
+(a) If $p$ satisfies the constraints $p'A=0', \sum_{i=1}^m p_i=1, p\geq 0$, then it is a feasible solution to the dual problem shown above. Weak duality tells us that the cost $(-p'b)$ of any feasible solution $p$ to the dual must be less than the optimal cost of the primal (namely $v$). Thus, for any $p$, $(-p'b)\leq v$.\\
 
-(b) We have already shown that the LP given in the question is the dual of the original LP. From the strong duality theorem, we know that if both primal has an optimal solution (which it does) so does the dual, and the optimal costs are the same. Thus, the optimal cost of this LP is $v$.
+(b) We have already shown that the LP given in the question is the dual of the original LP. From the strong duality theorem, we know that if the primal has an optimal solution (which it must, to have a finite optimal cost $v$) then the dual has an optimal solution as well, with the same optimal cost. Thus, the optimal cost of the given LP is $v$.

@@ -6,17 +6,18 @@ Considering the given primal LP, we can construct the dual LP using the rules pr
                     &p'A \le c \notag
 \end{align}
 
-The goal is to show $x^*$ is an optimal solution. This is done by showing that a solution (proved to be feasible below) $p^* = x^*$ to the dual produces the same cost as $x^*$ to the primal. From the strong duality theorem, we know that the optimal costs of the primal and dual are equal. We can use this fact to argue that if $x^*$ and $p^*$ produce the same cost, then the cost is optimal and $x^* = p^*$ are the optimal solutions.
+We must show that $x^*$ is an optimal solution if $Ax^*=c$ and $x\geq 0$. Since $x^*$ satisfies these constraints, it is a feasible solution to the primal (original) LP problem.
 
-Thus, consider $x^*$ to be a feasible solution to the primal LP and let $p^* = x^*$. \\
-Then $p^*$ is feasible for the dual LP because;
-\[ p^* = x^* \ge 0\]
-Using the fact that $A = A'$ as $A$ is symmetric and square, 
-\[Ax^* = Ap^* = A'p^* = (p^*)'A = c \text{ thus the inequality is satisfied. } p^* \text{ is thus feasible. }\]
-Additionally, writing the costs in terms of $x^*$ and $p^*$
+We note that since $A$ is symmetric and square, $A=A'$ and
+
+\[Ax^*=A'x^*=(x^*)'A=c\]
+
+Since $x^*\geq 0$, $x^*$ is also a feasible solution to the dual problem. It's cost in the dual problem is
+
 \[c'x^* = (x^*)'c \text{ as a scalar and its transpose are equal}\]
-Since, $x^* = p^*$
-\[(x^*)'c = (p^*)'c\]
-Thus, the primal and dual have the same cost for $x^* = p^*$. Thus, based on the argument above, this is the optimal cost and $x^*$ is the optimal solution.
+
+Thus, $x^*$ is a feasible solution in the primal and the dual, with the same cost in both probmems. Strong duality suggests that $x^*$ is thus an optimal solution in the primal (original) problem.
+
+Q.E.D.
 
 
